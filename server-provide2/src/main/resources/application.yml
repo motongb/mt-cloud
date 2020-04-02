@@ -1,0 +1,18 @@
+server:
+  port: 8030
+
+spring:
+  application:
+    name: provide2
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: always
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
