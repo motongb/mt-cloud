@@ -4,11 +4,5 @@ server:
 spring:
   application:
     name: provide1
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://server-eureka:8000/eureka/
-  instance:
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
-    prefer-ip-address: true
+  profiles:
+    active: local

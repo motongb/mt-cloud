@@ -35,6 +35,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws SysException {
         String token = request.getHeader(MTConst.TOKEN_KEY);
+        log.info("token=={}", token);
         if (StringUtils.isEmpty(token)) {
             throw new SysException(CodeEnum.TOKEN_EMPTY);
         }
