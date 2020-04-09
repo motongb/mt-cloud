@@ -3,7 +3,7 @@ version: '3.0'
 services:
   eureka:
     build:
-      context: ../server-eureka/
+      context: ./server-eureka/
       dockerfile: ./Dockerfile
     image:  iot-server/server-eureka:3.0
     restart: always
@@ -18,7 +18,7 @@ services:
 
   gateway:
     build:
-      context: ../server-gateway/
+      context: ./server-gateway/
       dockerfile: ./Dockerfile
     image:  iot-server/server-gateway:3.0
     restart: always
@@ -33,7 +33,7 @@ services:
 
   provide1:
     build:
-      context: ../server-provide1/
+      context: ./server-provide1/
       dockerfile: ./Dockerfile
     image:  iot-server/server-provide1:3.0
     restart: always
@@ -48,7 +48,7 @@ services:
 
   provide2:
     build:
-      context: ../server-provide2/
+      context: ./server-provide2/
       dockerfile: ./Dockerfile
     image:  iot-server/server-provide2:3.0
     restart: always
