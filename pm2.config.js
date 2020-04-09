@@ -36,7 +36,7 @@ module.exports = {
             interpreter: ''
         },
         {
-            name: 'server-provide2-file',
+            name: 'server-provide2',
             script: 'java',
             args: [
                 '-jar',

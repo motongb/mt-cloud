@@ -1,6 +1,7 @@
 package com.mt.common.core;
 
 import com.mt.common.entity.sys.UserEntity;
+import com.mt.common.exception.SysException;
 
 /**
  * @author motb
@@ -11,8 +12,12 @@ public abstract class UserContext {
 
     private static final ThreadLocal<UserEntity> context = new ThreadLocal<>();
 
-    public static MTEntity getContext() {
-        return context.get();
+    public static UserEntity getContext() {
+        UserEntity currentUser = context.get();
+        if (currentUser == null) {
+            throw new SysException(CodeEnum.TOKEN_EMPTY);
+        }
+        return currentUser;
     }
 
     public static void setContext(UserEntity userEntity) {

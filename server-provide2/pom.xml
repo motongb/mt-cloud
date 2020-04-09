@@ -15,6 +15,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.mt</groupId>
             <artifactId>server-common</artifactId>
             <version>${project.parent.version}</version>

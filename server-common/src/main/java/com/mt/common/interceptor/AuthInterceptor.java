@@ -1,7 +1,7 @@
 package com.mt.common.interceptor;
 
 import com.mt.common.core.CodeEnum;
-import com.mt.common.core.MTConst;
+import com.mt.common.core.SystemConst;
 import com.mt.common.core.UserContext;
 import com.mt.common.exception.SysException;
 import com.mt.common.utils.JwtUtils;
@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class AuthInterceptor implements HandlerInterceptor {
 
+
     /**
      * 进入controller之前执行
      *
@@ -34,7 +35,7 @@ public class AuthInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws SysException {
-        String token = request.getHeader(MTConst.TOKEN_KEY);
+        String token = request.getHeader(SystemConst.TOKEN_KEY);
         log.info("token=={}", token);
         if (StringUtils.isEmpty(token)) {
             throw new SysException(CodeEnum.TOKEN_EMPTY);

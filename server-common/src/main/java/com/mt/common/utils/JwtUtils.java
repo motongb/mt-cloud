@@ -1,7 +1,7 @@
 package com.mt.common.utils;
 
 import com.mt.common.core.CodeEnum;
-import com.mt.common.core.MTConst;
+import com.mt.common.core.SystemConst;
 import com.mt.common.entity.sys.UserEntity;
 import com.mt.common.exception.SysException;
 import io.jsonwebtoken.Claims;
@@ -47,7 +47,7 @@ public abstract class JwtUtils {
             return null;
         }
         Map<String, Object> params = new HashMap<>();
-        params.put(MTConst.USER_INFO, userEntity);
+        params.put(SystemConst.USER_INFO, userEntity);
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
                 .addClaims(params)
@@ -66,7 +66,7 @@ public abstract class JwtUtils {
     public static UserEntity checkJwt(String token) {
         try {
             Claims claims = Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
-            return JsonUtils.object2Bean(claims.get(MTConst.USER_INFO), UserEntity.class);
+            return JsonUtils.object2Bean(claims.get(SystemConst.USER_INFO), UserEntity.class);
         } catch (MalformedJwtException e) {
             throw new SysException(CodeEnum.TOKEN_INVALID);
         }

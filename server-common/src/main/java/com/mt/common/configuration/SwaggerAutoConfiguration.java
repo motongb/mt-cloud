@@ -38,11 +38,11 @@ public class SwaggerAutoConfiguration {
     @Bean
     public Docket api(SwaggerProperties swaggerProperties) {
         // base-path处理
-        if (swaggerProperties.getBasePath().size() == 0) {
+        if (swaggerProperties.getBasePath().isEmpty()) {
             swaggerProperties.getBasePath().add(BASE_PATH);
         }
         // exclude-path处理
-        if (swaggerProperties.getExcludePath().size() == 0) {
+        if (swaggerProperties.getExcludePath().isEmpty()) {
             swaggerProperties.getExcludePath().add(DEFAULT_EXCLUDE_PATH);
         }
 
