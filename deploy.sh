@@ -1,2 +1,2 @@
 #!/bin/sh
-./mvnw clean package -DskipTests && docker-compose up -d
+./mvnw clean package -DskipTests && pm2 restart pm2.config.js
