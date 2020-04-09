@@ -1,0 +1,62 @@
+version: '3.0'
+
+services:
+  eureka:
+    build:
+      dockerfile: ../server-eureka/Dockerfile
+    image:  iot-server/server-eureka:3.0
+    restart: always
+    container_name: server-eureka
+    hostname: server-eureka
+    ports:
+    - "8000:8000"
+    networks:
+      iotnet:
+        aliases:
+        - server-eureka
+
+  gateway:
+    build:
+      dockerfile: ../server-gateway/Dockerfile
+    image:  iot-server/server-gateway:3.0
+    restart: always
+    container_name: server-gateway
+    hostname: server-gateway
+    ports:
+    - "8080:8080"
+    networks:
+      iotnet:
+        aliases:
+        - server-gateway
+
+  provide1:
+    build:
+      dockerfile: ../server-provide1/Dockerfile
+    image:  iot-server/server-provide1:3.0
+    restart: always
+    container_name: server-provide1
+    hostname: server-provide1
+    ports:
+    - "8010:8010"
+    networks:
+      iotnet:
+        aliases:
+        - server-provide1
+
+  provide2:
+    build:
+      dockerfile: ../server-provide2/Dockerfile
+    image:  iot-server/server-provide2:3.0
+    restart: always
+    container_name: server-provide2
+    hostname: server-provide2
+    ports:
+    - "8020:8020"
+    networks:
+      iotnet:
+        aliases:
+        - server-provide2
+
+networks:
+  iotnet:
+    driver: 'bridge'
