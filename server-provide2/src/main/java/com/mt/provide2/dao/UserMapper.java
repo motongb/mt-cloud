@@ -5,9 +5,9 @@ import com.mt.common.entity.sys.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * @Auther: motb
- * @Date: 2020/4/9 15:26
- * @Description:
+ * @auther: motb
+ * @date: 2020/4/9 15:26
+ * @description:
  */
 @Mapper
 public interface UserMapper extends SysBaseMapper<UserEntity> {

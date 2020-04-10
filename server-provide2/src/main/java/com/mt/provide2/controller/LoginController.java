@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Auther: motb
- * @Date: 2020/4/9 16:40
- * @Description:
+ * @auther: motb
+ * @date: 2020/4/9 16:40
+ * @description:
  */
 @Api(tags = "Login Controller")
 @RestController
