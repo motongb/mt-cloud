@@ -11,12 +11,20 @@ import java.util.List;
  */
 public interface BaseService<T extends BaseEntity> {
     /**
-     * 新增修改
+     * 新增
      *
      * @param t
      * @return
      */
-    T saveOrUpdate(T t);
+    T save(T t);
+
+    /**
+     * 编辑
+     *
+     * @param t
+     * @return
+     */
+    T update(T t);
 
     /**
      * 批量删除

@@ -16,9 +16,9 @@ import java.util.List;
  * @date 2020/3/25 17:42
  * @description:
  */
-@Api(tags = "User Controller")
+@Api(tags = "系统-用户")
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/sys/user")
 @AllArgsConstructor
 public class UserController {
 
@@ -31,8 +31,15 @@ public class UserController {
     }
 
     @PostMapping
-    public HttpResult saveOrUpdate(@RequestBody UserEntity userEntity) {
-        return HttpResult.success(userService.saveOrUpdate(userEntity));
+    public HttpResult save(@RequestBody UserEntity userEntity) {
+        userService.save(userEntity);
+        return HttpResult.success();
+    }
+
+    @PutMapping
+    public HttpResult update(@RequestBody UserEntity userEntity) {
+        userService.update(userEntity);
+        return HttpResult.success();
     }
 
     @DeleteMapping

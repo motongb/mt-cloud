@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date: 2020/4/9 16:40
  * @description:
  */
-@Api(tags = "Login Controller")
+@Api(tags = "系统-登录")
 @RestController
 @RequestMapping("/sys")
 @AllArgsConstructor
