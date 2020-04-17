@@ -11,5 +11,13 @@ spring:
     time-zone: GMT+8
     default-property-inclusion: always
 
+logging:
+  level:
+    root: info
+    com.mt: info
+  file:
+    max-size: 20MB
+    path: application-log
+
 user:
   defaultPwd: 123456

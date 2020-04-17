@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Data
 @Table(name = "sys_user")
-@ApiModel("用户实体")
+@ApiModel("用户类")
 @EqualsAndHashCode(callSuper = true)
 public class UserEntity extends BaseEntity {
 

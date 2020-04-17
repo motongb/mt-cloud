@@ -32,6 +32,7 @@ public class MenuController {
     @PutMapping
     public HttpResult update(@RequestBody MenuEntity menuEntity) {
         Assert.notNull(menuEntity.getId(), "require id");
+        menuService.update(menuEntity);
         return HttpResult.success();
     }
 

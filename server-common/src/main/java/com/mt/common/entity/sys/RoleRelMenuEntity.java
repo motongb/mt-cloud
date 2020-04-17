@@ -1,6 +1,7 @@
 package com.mt.common.entity.sys;
 
 import com.mt.common.core.BaseEntity;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
  */
 @Data
 @Table(name = "sys_role_menu")
+@ApiModel("角色菜单关联")
 @EqualsAndHashCode(callSuper = true)
 public class RoleRelMenuEntity extends BaseEntity {
 

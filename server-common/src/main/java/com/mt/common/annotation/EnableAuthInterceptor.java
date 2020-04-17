@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 /**
  * @author motb
  * @date 2020/3/25 23:06
- * @description:
+ * @description: 启用token验证
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

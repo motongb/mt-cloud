@@ -22,6 +22,11 @@ public class RoleController {
 
     private RoleService roleService;
 
+    @GetMapping
+    public HttpResult get() {
+        return HttpResult.success(roleService.getBaseMapper().selectAll());
+    }
+
     @PostMapping
     public HttpResult save(@RequestBody RoleEntity roleEntity) {
         roleService.save(roleEntity);

@@ -13,6 +13,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -57,11 +60,14 @@ public class MybatisAuthInterceptor implements Interceptor {
     private void insertFill(Object parameter) {
         if (parameter instanceof BaseEntity) {
             BaseEntity ctEntity = (BaseEntity) parameter;
-            ctEntity.setCreateTime(LocalDateTime.now().toString());
-            ctEntity.setCreateBy(UserContext.getContext().getAccount());
-            ctEntity.setUpdateTime(LocalDateTime.now().toString());
-            ctEntity.setUpdateBy(UserContext.getContext().getAccount());
+            setFill(ctEntity);
         }
+        if (parameter instanceof HashMap) {
+            HashMap map = (HashMap) parameter;
+            List<BaseEntity> insertList = (ArrayList) map.get("list");
+            insertList.forEach(this::setFill);
+        }
+
     }
 
     private void updateFill(Object parameter) {
@@ -72,4 +78,10 @@ public class MybatisAuthInterceptor implements Interceptor {
         }
     }
 
+    private void setFill(BaseEntity entity) {
+        entity.setCreateTime(LocalDateTime.now().toString());
+        entity.setCreateBy(UserContext.getContext().getAccount());
+        entity.setUpdateTime(LocalDateTime.now().toString());
+        entity.setUpdateBy(UserContext.getContext().getAccount());
+    }
 }
