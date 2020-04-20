@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @auther: motb
@@ -22,6 +23,12 @@ public class UserRelRoleEntity extends BaseEntity {
     @ApiModelProperty(value = "用户id", example = "0")
     private Long userId;
 
+    @Transient
+    private String userName;
+
     @ApiModelProperty(value = "角色id", example = "0")
     private Long roleId;
+
+    @Transient
+    private String roleName;
 }

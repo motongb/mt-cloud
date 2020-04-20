@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @auther: motb
@@ -19,13 +20,20 @@ public class UserRelRoleService extends BaseServiceImpl<UserRelRoleEntity, UserR
     /**
      * 批量新增
      *
-     * @param userRelRoleEntities
+     * @param userIds
      */
-    public void saveList(Long roleId, List<UserRelRoleEntity> userRelRoleEntities) {
+    public void saveList(Long roleId, List<Long> userIds) {
         UserRelRoleEntity relRoleEntity = new UserRelRoleEntity();
         relRoleEntity.setRoleId(roleId);
         getBaseMapper().delete(relRoleEntity);
-        if (!CollectionUtils.isEmpty(userRelRoleEntities)) {
+        if (!CollectionUtils.isEmpty(userIds)) {
+            List<UserRelRoleEntity> userRelRoleEntities = userIds.stream()
+                    .map(userId -> {
+                        UserRelRoleEntity item = new UserRelRoleEntity();
+                        item.setUserId(userId);
+                        item.setRoleId(roleId);
+                        return item;
+                    }).collect(Collectors.toList());
             getBaseMapper().insertList(userRelRoleEntities);
         }
     }

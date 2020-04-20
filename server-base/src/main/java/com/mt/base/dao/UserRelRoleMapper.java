@@ -5,6 +5,8 @@ import com.mt.common.entity.sys.UserRelRoleEntity;
 import org.apache.ibatis.annotations.Mapper;
 import tk.mybatis.mapper.additional.insert.InsertListMapper;
 
+import java.util.List;
+
 /**
  * @auther: motb
  * @date: 2020/4/17 09:22
@@ -12,4 +14,6 @@ import tk.mybatis.mapper.additional.insert.InsertListMapper;
  */
 @Mapper
 public interface UserRelRoleMapper extends SysBaseMapper<UserRelRoleEntity>, InsertListMapper<UserRelRoleEntity> {
+
+    List<UserRelRoleEntity> selectByRoleId(Long roleId);
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mt.base.dao.UserRelRoleMapper">
+
+    <resultMap id="resultMap" type="com.mt.common.entity.sys.UserRelRoleEntity">
+        <id property="id" column="id"/>
+    </resultMap>
+
+    <sql id="column">
+    </sql>
+
+    <select id="selectByRoleId" resultType="com.mt.common.entity.sys.UserRelRoleEntity" parameterType="java.lang.Long">
+        select ur.id,ur.user_id,ur.role_id,u.name as user_name
+        from sys_user_role ur
+        left join sys_user u on u.id = ur.user_id
+        where ur.role_id = #{roleId}
+        order by ur.update_time desc
+    </select>
+
+</mapper>

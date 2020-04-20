@@ -11,5 +11,14 @@ spring:
     time-zone: GMT+8
     default-property-inclusion: always
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
 user:
   defaultPwd: 123456

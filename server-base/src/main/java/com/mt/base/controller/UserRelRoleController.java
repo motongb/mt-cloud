@@ -27,8 +27,15 @@ public class UserRelRoleController {
     @ApiOperation("保存")
     @PostMapping("/{roleId}")
     public HttpResult save(@PathVariable @ApiParam("角色id") Long roleId,
-                           @RequestBody List<UserRelRoleEntity> userRelRoleEntityList) {
-        userRelRoleService.saveList(roleId, userRelRoleEntityList);
+                           @RequestBody List<Long> userIds) {
+        userRelRoleService.saveList(roleId, userIds);
         return HttpResult.success();
     }
+
+    @ApiOperation("已关联用户")
+    @GetMapping("/{roleId}")
+    public HttpResult relUser(@PathVariable @ApiParam("角色id") Long roleId) {
+        return HttpResult.success(userRelRoleService.getBaseMapper().selectByRoleId(roleId));
+    }
+
 }
