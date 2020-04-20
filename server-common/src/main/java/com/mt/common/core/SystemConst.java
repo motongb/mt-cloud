@@ -16,4 +16,14 @@ public interface SystemConst {
      * token_key
      */
     String TOKEN_KEY = "token";
+
+    /**
+     * 用户关联角色
+     */
+    String USER_REL_ROLE = "0";
+
+    /**
+     * 角色关联用户
+     */
+    String ROLE_REL_USER = "1";
 }

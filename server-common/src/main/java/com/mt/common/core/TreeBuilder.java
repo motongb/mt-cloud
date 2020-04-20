@@ -1,5 +1,6 @@
 package com.mt.common.core;
 
+import com.mt.common.core.base.BaseTreeEntity;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;

@@ -10,18 +10,18 @@ import javax.persistence.Table;
 
 /**
  * @auther: motb
- * @date: 2020/4/14 14:33
+ * @date: 2020/4/17 09:19
  * @description:
  */
 @Data
-@Table(name = "sys_role")
-@ApiModel("角色类")
+@ApiModel("用户角色关联")
+@Table(name = "sys_user_role")
 @EqualsAndHashCode(callSuper = true)
-public class RoleEntity extends BaseEntity {
+public class UserRelRoleEntity extends BaseEntity {
 
-    @ApiModelProperty("名称")
-    private String name;
+    @ApiModelProperty(value = "用户id", example = "0")
+    private Long userId;
 
-    @ApiModelProperty("编码")
-    private String code;
+    @ApiModelProperty(value = "角色id", example = "0")
+    private Long roleId;
 }

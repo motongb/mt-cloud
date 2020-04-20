@@ -14,7 +14,7 @@
         <module>server-common</module>
         <module>server-eureka</module>
         <module>server-provide1</module>
-        <module>server-provide2</module>
+        <module>server-base</module>
         <module>server-gateway</module>
     </modules>
 

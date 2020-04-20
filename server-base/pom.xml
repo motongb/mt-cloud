@@ -9,47 +9,33 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>server-gateway</artifactId>
-    <name>server-gateway</name>
-    <description>gateway project for Spring Boot</description>
+    <artifactId>server-base</artifactId>
+    <name>server-base</name>
+    <description>base project for Spring Boot</description>
 
     <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.mt</groupId>
             <artifactId>server-common</artifactId>
             <version>${project.parent.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>tk.mybatis</groupId>
-                    <artifactId>mapper-spring-boot-starter</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.github.pagehelper</groupId>
-                    <artifactId>pagehelper-spring-boot-starter</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
         <!-- eureka 客户端依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.cloud</groupId>-->
-        <!--            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>server-gateway</finalName>
+        <finalName>server-base</finalName>
         <plugins>
             <!--编译器-->
             <plugin>
@@ -121,7 +107,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.mt.gateway.GatewayApplication</mainClass>
+                            <mainClass>com.mt.base.BaseApplication</mainClass>
                         </manifest>
                         <!--添加类路径-->
                         <manifestEntries>

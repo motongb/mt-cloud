@@ -1,6 +1,6 @@
 package com.mt.common.entity.sys;
 
-import com.mt.common.core.BaseEntity;
+import com.mt.common.core.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

@@ -1,12 +1,15 @@
 package com.mt.common.entity.sys;
 
-import com.mt.common.core.BaseEntity;
+import com.mt.common.core.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author motb
@@ -33,4 +36,13 @@ public class UserEntity extends BaseEntity {
 
     @ApiModelProperty(value = "年龄", example = "0")
     private Integer age;
+
+    @ApiModelProperty("用户类型：0-普通用户，1-管理员，2-超级管理员")
+    private String type;
+
+    @ApiModelProperty("职业")
+    private String profession;
+
+    @Transient
+    private List<RoleEntity> roles = new ArrayList<>();
 }

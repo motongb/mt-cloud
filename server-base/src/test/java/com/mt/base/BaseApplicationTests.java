@@ -1,10 +1,10 @@
-package com.mt.common;
+package com.mt.base;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServerCommonApplicationTests {
+class BaseApplicationTests {
 
     @Test
     void contextLoads() {

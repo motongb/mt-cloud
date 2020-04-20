@@ -48,18 +48,18 @@ services:
 
   provide2:
     build:
-      context: ./server-provide2/
+      context: ./server-base/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-provide2:3.0
+    image:  iot-server/server-base:3.0
     restart: always
-    container_name: server-provide2
-    hostname: server-provide2
+    container_name: server-base
+    hostname: server-base
     ports:
     - "8020:8020"
     networks:
       iotnet:
         aliases:
-        - server-provide2
+        - server-base
 
 networks:
   iotnet:

@@ -1,8 +1,8 @@
 package com.mt.common.interceptor;
 
 
-import com.mt.common.core.BaseEntity;
 import com.mt.common.core.UserContext;
+import com.mt.common.core.base.BaseEntity;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.SqlCommandType;

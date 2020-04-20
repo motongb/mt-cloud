@@ -36,11 +36,11 @@ module.exports = {
             interpreter: ''
         },
         {
-            name: 'server-provide2',
+            name: 'server-base',
             script: 'java',
             args: [
                 '-jar',
-                'server-provide2/target/server-provide2.jar',
+                'server-base/target/server-base.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8020'
             ],

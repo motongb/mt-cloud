@@ -19,9 +19,9 @@ spring:
             - Path=/server1/**
           filters:
             - StripPrefix=1
-        - id: server2
-          uri: lb://provide2
+        - id: base
+          uri: lb://base
           predicates:
-            - Path=/server2/**
+            - Path=/base/**
           filters:
             - StripPrefix=1
