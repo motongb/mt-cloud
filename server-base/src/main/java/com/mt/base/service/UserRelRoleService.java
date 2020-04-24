@@ -1,10 +1,16 @@
 package com.mt.base.service;
 
 import com.mt.base.dao.UserRelRoleMapper;
+import com.mt.common.core.SystemConst;
+import com.mt.common.core.TreeBuilder;
 import com.mt.common.core.base.BaseServiceImpl;
+import com.mt.common.entity.sys.MenuEntity;
+import com.mt.common.entity.sys.UserEntity;
 import com.mt.common.entity.sys.UserRelRoleEntity;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,7 +21,10 @@ import java.util.stream.Collectors;
  * @description:
  */
 @Service
+@AllArgsConstructor
 public class UserRelRoleService extends BaseServiceImpl<UserRelRoleEntity, UserRelRoleMapper> {
+
+    private MenuService menuService;
 
     /**
      * 批量新增
@@ -36,5 +45,43 @@ public class UserRelRoleService extends BaseServiceImpl<UserRelRoleEntity, UserR
                     }).collect(Collectors.toList());
             getBaseMapper().insertList(userRelRoleEntities);
         }
+    }
+
+    /**
+     * 获取用户菜单列表
+     *
+     * @param userEntity
+     * @return
+     */
+    private List<MenuEntity> getUserMenuList(UserEntity userEntity, String type) {
+        List<MenuEntity> menuEntityList;
+        if (SystemConst.ROLE_SUPER_ADMIN.equals(userEntity.getType())) {
+            Example example = new Example(MenuEntity.class);
+            example.and().andEqualTo("type", type);
+            menuEntityList = menuService.getBaseMapper().selectByExample(example);
+        } else {
+            menuEntityList = getBaseMapper().selectMenuByUserId(userEntity.getId(), type);
+        }
+        return menuEntityList;
+    }
+
+    /**
+     * 获取用户菜单树
+     *
+     * @param userEntity
+     * @return
+     */
+    public List<MenuEntity> getMenu(UserEntity userEntity) {
+        return TreeBuilder.build(getUserMenuList(userEntity, SystemConst.MENU));
+    }
+
+    /**
+     * 获取用户权限
+     *
+     * @param userEntity
+     * @return
+     */
+    public List<String> getAccess(UserEntity userEntity) {
+        return getUserMenuList(userEntity, SystemConst.FUNCTION).stream().map(MenuEntity::getCode).collect(Collectors.toList());
     }
 }

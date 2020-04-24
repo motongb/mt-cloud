@@ -17,4 +17,12 @@
         order by ur.update_time desc
     </select>
 
+    <select id="selectMenuByUserId" resultType="com.mt.common.entity.sys.MenuEntity">
+        select distinct m.id,m.name,m.code,m.path,m.icon,m.sort,m.tree_id,m.parent_tree_id
+        from sys_menu m
+        left join sys_role_menu rm on rm.menu_id = m.id
+        left join sys_user_role ur on ur.role_id = rm.role_id
+        WHERE ur.user_id =#{userId} and m.type = #{type}
+        order by m.sort
+    </select>
 </mapper>

@@ -1,8 +1,8 @@
 package com.mt.base.controller;
 
+import com.mt.base.service.RoleService;
 import com.mt.common.entity.sys.RoleEntity;
 import com.mt.common.http.HttpResult;
-import com.mt.base.service.RoleService;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +40,7 @@ public class RoleController {
     }
 
     @DeleteMapping
-    public HttpResult bachDelete(@RequestBody List<Long> ids) {
+    public HttpResult batchDelete(@RequestBody List<Long> ids) {
         return HttpResult.success();
     }
 }

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @auther: motb
@@ -24,4 +25,8 @@ public class RoleRelMenuEntity extends BaseEntity {
 
     @ApiModelProperty(value = "菜单id", example = "0")
     private Long menuId;
+
+    @Transient
+    @ApiModelProperty("菜单类型")
+    private String type;
 }

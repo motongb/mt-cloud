@@ -1,7 +1,9 @@
 package com.mt.common.exception;
 
+import com.mt.common.core.CodeEnum;
 import com.mt.common.http.HttpResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +24,19 @@ public class ExceptionCatchController {
         }
         log.warn(message, e);
         return HttpResult.fail(e.getCodeEnum());
+    }
+
+    /**
+     * 参数异常
+     *
+     * @param e
+     * @return
+     */
+    @ResponseBody
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public HttpResult methodArgumentExceptionCatch(MethodArgumentNotValidException e) {
+        log.warn(e.getMessage(), e);
+        return HttpResult.fail(CodeEnum.PARAMS_VALID);
     }
 
 

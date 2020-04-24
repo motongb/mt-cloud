@@ -1,7 +1,6 @@
 package com.mt.base.controller;
 
 import com.mt.base.service.UserRelRoleService;
-import com.mt.common.entity.sys.UserRelRoleEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

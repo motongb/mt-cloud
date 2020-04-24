@@ -1,8 +1,8 @@
 package com.mt.base.service;
 
+import com.mt.base.dao.RoleRelMenuMapper;
 import com.mt.common.core.base.BaseServiceImpl;
 import com.mt.common.entity.sys.RoleRelMenuEntity;
-import com.mt.base.dao.RoleRelMenuMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

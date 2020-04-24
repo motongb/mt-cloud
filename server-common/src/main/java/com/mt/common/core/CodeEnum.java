@@ -27,7 +27,22 @@ public enum CodeEnum {
     /**
      * token为空
      */
-    TOKEN_EMPTY(1001, "token empty");
+    TOKEN_EMPTY(1001, "token empty"),
+
+    /**
+     * 账号不存在
+     */
+    ACCOUNT_NOT_EXITS(1002, "account not exits"),
+
+    /**
+     * 密码错误
+     */
+    PASSWORD_ERROR(1003, "password error"),
+
+    /**
+     * 参数无效
+     */
+    PARAMS_VALID(2000, "params valid");
 
 
     private int code;

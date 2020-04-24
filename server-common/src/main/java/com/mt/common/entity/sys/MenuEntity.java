@@ -24,4 +24,13 @@ public class MenuEntity extends BaseTreeEntity {
 
     @ApiModelProperty("编码")
     private String code;
+
+    @ApiModelProperty("路径")
+    private String path;
+
+    @ApiModelProperty("图标")
+    private String icon;
+
+    @ApiModelProperty(value = "排序", example = "0")
+    private Integer sort;
 }

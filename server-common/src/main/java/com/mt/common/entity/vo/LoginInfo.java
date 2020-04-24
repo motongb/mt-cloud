@@ -2,6 +2,8 @@ package com.mt.common.entity.vo;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * @author motb
  * @date 2020/3/25 20:42
@@ -10,7 +12,9 @@ import lombok.Data;
 @Data
 public class LoginInfo {
 
+    @NotBlank
     private String account;
 
+    @NotBlank
     private String password;
 }

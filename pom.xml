@@ -20,10 +20,22 @@
 
     <properties>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
+        <pagehelper.version>1.2.13</pagehelper.version>
+        <swagger2.version>2.9.2</swagger2.version>
+        <swagger-ui.version>1.9.4</swagger-ui.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <lombok.version>1.18.8</lombok.version>
+
         <java.version>1.8</java.version>
+        <maven-compiler.version>3.1</maven-compiler.version>
         <springboot.version>2.2.5.RELEASE</springboot.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <springboot-admin.version>2.2.0</springboot-admin.version>
+
+        <server-common.version>0.0.1</server-common.version>
+        <server-gateway.version>0.0.1</server-gateway.version>
+        <server-base.version>0.0.1</server-base.version>
+        <server-eureka.version>0.0.1</server-eureka.version>
     </properties>
 
     <dependencies>
@@ -31,14 +43,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
+            <version>${lombok.version}</version>
         </dependency>
-        <!-- fastjson-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.alibaba</groupId>-->
-        <!--            <artifactId>fastjson</artifactId>-->
-        <!--            <version>1.2.47</version>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -54,6 +60,35 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--JJWT库-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <!--可视化接口文档-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <!--分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <!--通用mapper-->
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper-spring-boot-starter</artifactId>
@@ -91,4 +126,24 @@
         </repository>
     </repositories>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${springboot.version}</version>
+            </plugin>
+            <!--编译器-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -1,13 +1,12 @@
 package com.mt.base.controller;
 
+import com.mt.base.service.RoleRelMenuService;
 import com.mt.common.entity.sys.RoleRelMenuEntity;
 import com.mt.common.http.HttpResult;
-import com.mt.base.service.RoleRelMenuService;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,9 +26,7 @@ public class RoleRelMenuController {
 
     @GetMapping("/{roleId}")
     public HttpResult get(@PathVariable Long roleId) {
-        Example example = new Example(RoleRelMenuEntity.class);
-        example.and().andEqualTo("roleId", roleId);
-        return HttpResult.success(roleRelMenuService.listByExample(example));
+        return HttpResult.success(roleRelMenuService.getBaseMapper().selectByRoleId(roleId));
     }
 
     @PostMapping("/{roleId}")

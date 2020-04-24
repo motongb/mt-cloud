@@ -1,9 +1,16 @@
 package com.mt.base.service;
 
+import com.mt.common.core.CodeEnum;
 import com.mt.common.entity.sys.UserEntity;
 import com.mt.common.entity.vo.LoginInfo;
+import com.mt.common.exception.SysException;
 import com.mt.common.utils.JwtUtils;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author motb
@@ -11,13 +18,30 @@ import org.springframework.stereotype.Service;
  * @description:
  */
 @Service
+@AllArgsConstructor
 public class LoginService {
 
-    public String login(LoginInfo loginInfo) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setAccount("motb");
-        userEntity.setName("motb");
-        userEntity.setPassword("123456");
-        return JwtUtils.createJwt(userEntity);
+    private UserService userService;
+
+    private UserRelRoleService userRelRoleService;
+
+    public Map<String, Object> login(LoginInfo loginInfo) {
+        UserEntity query = new UserEntity();
+        query.setAccount(loginInfo.getAccount());
+        UserEntity userEntity = userService.getBaseMapper().selectOne(query);
+        //账号不存在
+        if (userEntity == null) {
+            throw new SysException(CodeEnum.ACCOUNT_NOT_EXITS);
+        }
+        //密码错误
+        String pwd = loginInfo.getPassword();
+        if (!DigestUtils.md5DigestAsHex(pwd.getBytes()).equals(userEntity.getPassword())) {
+            throw new SysException(CodeEnum.PASSWORD_ERROR);
+        }
+        Map<String, Object> result = new HashMap<>();
+        result.put("token", JwtUtils.createJwt(userEntity));
+        result.put("menuList", userRelRoleService.getMenu(userEntity));
+        result.put("access", userRelRoleService.getAccess(userEntity));
+        return result;
     }
 }

@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>server-provide1</artifactId>
-    <version>0.0.1</version>
     <name>server-provide1</name>
     <description>provide1 project for Spring Boot</description>
 
@@ -34,84 +33,19 @@
     <build>
         <finalName>server-provide1</finalName>
         <plugins>
-            <!--编译器-->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-            <!--拷贝文件-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <encoding>UTF-8</encoding>
+                    <mainClass>com.mt.provide1.Provide1Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>copy-config</id>
-                        <phase>process-sources</phase>
                         <goals>
-                            <goal>copy-resources</goal>
+                            <goal>repackage</goal>
                         </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/config</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>${basedir}/src/main/resources</directory>
-                                    <includes>
-                                        <include>*.*</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <!--拷贝依赖jar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- 可运行jar，不包括依赖包 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <excludes>
-                        <exclude>*.*</exclude>
-                        <!--<exclude>static/**</exclude>-->
-                    </excludes>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.mt.provide1.Provide1Application</mainClass>
-                        </manifest>
-                        <!--添加类路径-->
-                        <manifestEntries>
-                            <Class-Path>config/</Class-Path>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class UserService extends BaseServiceImpl<UserEntity, UserMapper> {
     @Override
     public UserEntity save(UserEntity userEntity) {
         if (StringUtils.isEmpty(userEntity.getPassword())) {
-            userEntity.setPassword(defaultPwd);
+            userEntity.setPassword(DigestUtils.md5DigestAsHex(defaultPwd.getBytes()));
         }
         getBaseMapper().insertSelective(userEntity);
         if (!CollectionUtils.isEmpty(userEntity.getRoles())) {

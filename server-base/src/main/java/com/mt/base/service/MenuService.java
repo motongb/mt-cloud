@@ -1,8 +1,8 @@
 package com.mt.base.service;
 
+import com.mt.base.dao.MenuMapper;
 import com.mt.common.core.base.BaseTreeServiceImpl;
 import com.mt.common.entity.sys.MenuEntity;
-import com.mt.base.dao.MenuMapper;
 import org.springframework.stereotype.Service;
 
 /**

@@ -1,8 +1,6 @@
 package com.mt.base.configuration;
 
 import com.mt.common.annotation.EnableAuthInterceptor;
-import com.mt.common.interceptor.MybatisAuthInterceptor;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -12,6 +10,5 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableAuthInterceptor
-@EnableConfigurationProperties(MybatisAuthInterceptor.class)
 public class InterceptorConfig {
 }
