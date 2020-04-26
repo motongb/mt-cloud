@@ -8,7 +8,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 /**
  * @auther: motb
  * @date: 2020/4/22 16:20
- * @description:
+ * @description: mybatis拦截器配置
  */
 @Configuration
 @MapperScan(basePackages = "com.mt.base.dao")

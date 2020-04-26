@@ -34,6 +34,9 @@ public class UserEntity extends BaseEntity {
     @ApiModelProperty("手机")
     private String phone;
 
+    @ApiModelProperty("邮箱")
+    private String mail;
+
     @ApiModelProperty(value = "年龄", example = "0")
     private Integer age;
 

@@ -23,6 +23,11 @@ public class UserController {
 
     UserService userService;
 
+    @PostMapping("/register")
+    public HttpResult register(){
+        return HttpResult.success();
+    }
+
     @PostMapping
     public HttpResult save(@RequestBody UserEntity userEntity) {
         userService.save(userEntity);

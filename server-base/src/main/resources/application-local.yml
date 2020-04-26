@@ -4,6 +4,12 @@ spring:
     url: jdbc:mysql://localhost:3306/iot_server?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
     password: 123456
+  mail:
+    host: smtp.163.com
+    username: 18589998412@163.com
+    password: BVMNYDZNBLRIOCOI
+    properties.mail.display.sendmail: 验证码
+    properties.mail.display.sendname: Motb Account Register
 
 # mybatis配置
 mybatis:
