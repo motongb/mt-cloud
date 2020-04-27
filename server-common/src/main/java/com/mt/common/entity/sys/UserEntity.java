@@ -46,6 +46,12 @@ public class UserEntity extends BaseEntity {
     @ApiModelProperty("职业")
     private String profession;
 
+    @ApiModelProperty("身份证")
+    private String identity;
+
+    @ApiModelProperty("性别")
+    private String sex;
+
     @Transient
     private List<RoleEntity> roles = new ArrayList<>();
 }

@@ -23,6 +23,11 @@ public interface SystemConst {
     String ROLE_SUPER_ADMIN = "2";
 
     /**
+     * 普通用户
+     */
+    String ROLE_NORMAL_USER = "0";
+
+    /**
      * 功能
      */
     String FUNCTION = "function";

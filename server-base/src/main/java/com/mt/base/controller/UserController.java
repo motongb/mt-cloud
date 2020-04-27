@@ -20,11 +20,11 @@ import java.util.List;
 @AllArgsConstructor
 public class UserController {
 
-
     UserService userService;
 
     @PostMapping("/register")
-    public HttpResult register(){
+    public HttpResult register(@RequestBody UserEntity userEntity) {
+        userService.register(userEntity);
         return HttpResult.success();
     }
 

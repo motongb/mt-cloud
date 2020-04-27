@@ -3,6 +3,7 @@ package com.mt.base.service;
 import com.github.pagehelper.PageHelper;
 import com.mt.base.dao.UserMapper;
 import com.mt.common.core.PageResult;
+import com.mt.common.core.SystemConst;
 import com.mt.common.core.base.BaseServiceImpl;
 import com.mt.common.entity.sys.UserEntity;
 import com.mt.common.entity.sys.UserRelRoleEntity;
@@ -30,11 +31,20 @@ public class UserService extends BaseServiceImpl<UserEntity, UserMapper> {
     @Autowired
     private UserRelRoleService userRelRoleService;
 
+    /**
+     * 账号注册
+     *
+     * @param userEntity
+     */
+    public void register(UserEntity userEntity) {
+        userEntity.setType(SystemConst.ROLE_NORMAL_USER);
+        save(userEntity);
+    }
+
     @Override
     public UserEntity save(UserEntity userEntity) {
-        if (StringUtils.isEmpty(userEntity.getPassword())) {
-            userEntity.setPassword(DigestUtils.md5DigestAsHex(defaultPwd.getBytes()));
-        }
+        String password = StringUtils.isEmpty(userEntity.getPassword()) ? defaultPwd : userEntity.getPassword();
+        userEntity.setPassword(DigestUtils.md5DigestAsHex(password.getBytes()));
         getBaseMapper().insertSelective(userEntity);
         if (!CollectionUtils.isEmpty(userEntity.getRoles())) {
             handleRole(userEntity);
