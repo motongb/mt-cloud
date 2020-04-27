@@ -1,16 +1,19 @@
 package com.mt.base.service;
 
+import com.mt.common.entity.vo.ValidCodeVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @auther: motb
@@ -27,7 +30,7 @@ public class EmailService {
     @Value("${spring.mail.username}")
     private String from;
 
-    private Map<String, String> mailCodeMap = new HashMap<>();
+    private Map<String, ValidCodeVo> cacheMailCodeMap = new ConcurrentHashMap<>();
 
     private static final String CODE_LIST = "23456789QWERTYUIOPASDFGHJKLZXCVBNM";
 
@@ -37,18 +40,59 @@ public class EmailService {
      * @param to
      * @param subject
      * @param content
+     * @return
      */
-    @Async
-    public void sendSimpleMail(String to, String subject, String content) {
+    /***@Async**/
+    public String sendSimpleMail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //发送邮件
 //        javaMailSender.send(message);
         log.info("发送邮件===={}", content);
+        return content;
     }
+
+    /**
+     * 发送验证码
+     *
+     * @param to
+     * @return
+     */
+    public String sendValidCode(String to) {
+        String code = createValidCode(6);
+        CompletableFuture.supplyAsync(() -> sendSimpleMail(to, "验证码", code)).thenAccept(res -> {
+            ValidCodeVo codeVo = new ValidCodeVo();
+            codeVo.setStartTime(System.currentTimeMillis());
+            codeVo.setValidCode(res);
+            cacheMailCodeMap.put(to, codeVo);
+            log.info("缓存{}", res);
+        });
+        return code;
+    }
+
+    /**
+     * 验证邮箱验证码
+     *
+     * @param email
+     * @param code
+     * @return
+     */
+    public boolean checkValidCode(String email, String code) {
+        ValidCodeVo codeVo = cacheMailCodeMap.get(email);
+        if (codeVo == null) {
+            return false;
+        }
+        return code.equals(codeVo.getValidCode());
+    }
+
 
     /**
      * 创建验证码
@@ -56,7 +100,7 @@ public class EmailService {
      * @param codeLong
      * @return
      */
-    public String createValidCode(int codeLong) {
+    private String createValidCode(int codeLong) {
         Random random = new Random();
         StringBuilder codeBuilder = new StringBuilder();
         int start = 0;
@@ -66,5 +110,21 @@ public class EmailService {
             start++;
         }
         return codeBuilder.toString();
+    }
+
+    /**
+     * 定时清理缓存
+     */
+    @Scheduled(fixedDelay = 15 * 1000)
+    private void clearCache() {
+        Iterator<Map.Entry<String, ValidCodeVo>> iterator = cacheMailCodeMap.entrySet().iterator();
+        long currentTimeMillis = System.currentTimeMillis();
+        while (iterator.hasNext()) {
+            ValidCodeVo codeVo = iterator.next().getValue();
+            if (currentTimeMillis - codeVo.getStartTime() > codeVo.getExpire()) {
+                iterator.remove();
+                log.info("清理验证码{}", codeVo.getValidCode());
+            }
+        }
     }
 }

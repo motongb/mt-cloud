@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @date: 2020/4/24 16:52
  * @description: 线程池配置
  */
+//@EnableScheduling//开启定时任务
 @Configuration
 @EnableConfigurationProperties(ThreadConfiguration.class)
 public class ThreadConfig {

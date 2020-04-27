@@ -11,7 +11,7 @@ import java.util.concurrent.Executor;
 /**
  * @auther: motb
  * @date: 2020/4/26 09:07
- * @description:
+ * @description: 线程池
  */
 @EnableAsync
 @ConfigurationProperties

@@ -4,10 +4,8 @@ import com.mt.base.service.EmailService;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @auther: motb
@@ -24,8 +22,12 @@ public class EmailController {
 
     @GetMapping("/code/{email}")
     public HttpResult sendCode(@PathVariable String email) {
-        String code = emailService.createValidCode(6);
-        emailService.sendSimpleMail(email, "验证码", code);
-        return HttpResult.success(code);
+        return HttpResult.success(emailService.sendValidCode(email));
+    }
+
+    @GetMapping("/valid-code")
+    public HttpResult validCode(@RequestParam String email, @RequestParam String validCode) {
+        Assert.isTrue(emailService.checkValidCode(email, validCode), "验证码失效");
+        return HttpResult.success();
     }
 }
