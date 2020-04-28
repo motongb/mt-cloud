@@ -31,10 +31,9 @@ public class AuthInterceptor implements HandlerInterceptor {
      * @param response
      * @param handler
      * @return
-     * @throws SysException
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws SysException {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String token = request.getHeader(SystemConst.TOKEN_KEY);
         log.info("token=={}", token);
         if (StringUtils.isEmpty(token)) {
@@ -52,10 +51,9 @@ public class AuthInterceptor implements HandlerInterceptor {
      * @param response
      * @param handler
      * @param modelAndView
-     * @throws Exception
      */
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
         //清除用户缓存
         UserContext.clear();
     }

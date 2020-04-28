@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: base
+    name: server-base
   profiles:
     active: local
   jackson:

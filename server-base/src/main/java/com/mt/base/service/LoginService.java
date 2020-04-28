@@ -1,8 +1,8 @@
 package com.mt.base.service;
 
 import com.mt.common.core.CodeEnum;
-import com.mt.common.entity.sys.UserEntity;
-import com.mt.common.entity.vo.LoginInfo;
+import com.mt.common.entity.base.UserEntity;
+import com.mt.common.entity.base.vo.LoginInfo;
 import com.mt.common.exception.SysException;
 import com.mt.common.utils.JwtUtils;
 import lombok.AllArgsConstructor;

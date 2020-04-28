@@ -2,7 +2,7 @@ package com.mt.common.utils;
 
 import com.mt.common.core.CodeEnum;
 import com.mt.common.core.SystemConst;
-import com.mt.common.entity.sys.UserEntity;
+import com.mt.common.entity.base.UserEntity;
 import com.mt.common.exception.SysException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

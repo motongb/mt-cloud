@@ -1,7 +1,7 @@
 package com.mt.base.dao;
 
 import com.mt.common.core.SysBaseMapper;
-import com.mt.common.entity.sys.RoleEntity;
+import com.mt.common.entity.base.RoleEntity;
 
 /**
  * @auther: motb

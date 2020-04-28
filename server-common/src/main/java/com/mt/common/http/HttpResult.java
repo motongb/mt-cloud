@@ -19,6 +19,7 @@ public class HttpResult<T> {
 
     private T data;
 
+//    private HttpResult(){}
 
     private HttpResult(CodeEnum codeEnum, T data) {
         this.code = codeEnum.getCode();

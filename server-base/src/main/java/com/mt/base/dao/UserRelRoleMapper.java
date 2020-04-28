@@ -1,8 +1,8 @@
 package com.mt.base.dao;
 
 import com.mt.common.core.SysBaseMapper;
-import com.mt.common.entity.sys.MenuEntity;
-import com.mt.common.entity.sys.UserRelRoleEntity;
+import com.mt.common.entity.base.MenuEntity;
+import com.mt.common.entity.base.UserRelRoleEntity;
 import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.additional.insert.InsertListMapper;
 

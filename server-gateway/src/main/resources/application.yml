@@ -1,6 +1,15 @@
 server:
   port: 8080
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
 spring:
   application:
     name: gateway
@@ -13,15 +22,15 @@ spring:
           enabled: false
           lower-case-service-id: true
       routes:
-        - id: server1
-          uri: lb://provide1
-          predicates:
-            - Path=/server1/**
-          filters:
-            - StripPrefix=1
-        - id: base
-          uri: lb://base
-          predicates:
-            - Path=/base/**
-          filters:
-            - StripPrefix=1
+      - id: book
+        uri: lb://server-book
+        predicates:
+        - Path=/book/**
+        filters:
+        - StripPrefix=1
+      - id: base
+        uri: lb://server-base
+        predicates:
+        - Path=/base/**
+        filters:
+        - StripPrefix=1

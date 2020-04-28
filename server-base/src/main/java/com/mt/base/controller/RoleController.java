@@ -1,7 +1,7 @@
 package com.mt.base.controller;
 
 import com.mt.base.service.RoleService;
-import com.mt.common.entity.sys.RoleEntity;
+import com.mt.common.entity.base.RoleEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;

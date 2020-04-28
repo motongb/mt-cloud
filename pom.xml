@@ -13,9 +13,10 @@
     <modules>
         <module>server-common</module>
         <module>server-eureka</module>
-        <module>server-provide1</module>
+        <module>server-book</module>
         <module>server-base</module>
         <module>server-gateway</module>
+        <module>server-admin</module>
     </modules>
 
     <properties>

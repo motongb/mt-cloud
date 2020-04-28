@@ -24,11 +24,11 @@ module.exports = {
             interpreter: ''
         },
         {
-            name: 'server-provide1',
+            name: 'server-book',
             script: 'java',
             args: [
                 '-jar',
-                'server-provide1/target/server-provide1.jar',
+                'server-book/target/server-book.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8010'
             ],
@@ -43,6 +43,17 @@ module.exports = {
                 'server-base/target/server-base.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8020'
+            ],
+            cwd: '.',
+            interpreter: ''
+        },
+        {
+            name: 'server-admin',
+            script: 'java',
+            args: [
+                '-jar',
+                'server-admin/target/server-admin.jar',
+                '--server.port=8030'
             ],
             cwd: '.',
             interpreter: ''

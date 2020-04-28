@@ -1,7 +1,7 @@
 package com.mt.base.dao;
 
 import com.mt.common.core.SysBaseMapper;
-import com.mt.common.entity.sys.MenuEntity;
+import com.mt.common.entity.base.MenuEntity;
 
 /**
  * @auther: motb

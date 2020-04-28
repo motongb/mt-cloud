@@ -1,7 +1,7 @@
 package com.mt.base.controller;
 
 import com.mt.base.service.UserService;
-import com.mt.common.entity.sys.UserEntity;
+import com.mt.common.entity.base.UserEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;

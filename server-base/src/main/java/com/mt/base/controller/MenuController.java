@@ -1,7 +1,7 @@
 package com.mt.base.controller;
 
 import com.mt.base.service.MenuService;
-import com.mt.common.entity.sys.MenuEntity;
+import com.mt.common.entity.base.MenuEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;

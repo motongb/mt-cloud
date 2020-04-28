@@ -2,7 +2,7 @@ package com.mt.base.controller;
 
 import com.mt.base.service.LoginService;
 import com.mt.common.core.UserContext;
-import com.mt.common.entity.vo.LoginInfo;
+import com.mt.common.entity.base.vo.LoginInfo;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

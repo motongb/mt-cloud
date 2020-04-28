@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mt.base.dao.UserRelRoleMapper">
 
-    <resultMap id="resultMap" type="com.mt.common.entity.sys.UserRelRoleEntity">
+    <resultMap id="resultMap" type="com.mt.common.entity.base.UserRelRoleEntity">
         <id property="id" column="id"/>
     </resultMap>
 
     <sql id="column">
     </sql>
 
-    <select id="selectByRoleId" resultType="com.mt.common.entity.sys.UserRelRoleEntity" parameterType="java.lang.Long">
+    <select id="selectByRoleId" resultType="com.mt.common.entity.base.UserRelRoleEntity" parameterType="java.lang.Long">
         select ur.id,ur.user_id,ur.role_id,u.name as user_name
         from sys_user_role ur
         left join sys_user u on u.id = ur.user_id
@@ -17,7 +17,7 @@
         order by ur.update_time desc
     </select>
 
-    <select id="selectMenuByUserId" resultType="com.mt.common.entity.sys.MenuEntity">
+    <select id="selectMenuByUserId" resultType="com.mt.common.entity.base.MenuEntity">
         select distinct m.id,m.name,m.code,m.path,m.icon,m.sort,m.tree_id,m.parent_tree_id
         from sys_menu m
         left join sys_role_menu rm on rm.menu_id = m.id

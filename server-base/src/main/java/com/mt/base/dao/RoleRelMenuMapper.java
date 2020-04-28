@@ -1,7 +1,7 @@
 package com.mt.base.dao;
 
 import com.mt.common.core.SysBaseMapper;
-import com.mt.common.entity.sys.RoleRelMenuEntity;
+import com.mt.common.entity.base.RoleRelMenuEntity;
 import tk.mybatis.mapper.additional.insert.InsertListMapper;
 
 import java.util.List;

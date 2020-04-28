@@ -1,11 +1,11 @@
-version: '3.0'
+version: '1.0'
 
 services:
   eureka:
     build:
       context: ./server-eureka/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-eureka:3.0
+    image:  iot-server/server-eureka:1.0
     restart: always
     container_name: server-eureka
     hostname: server-eureka
@@ -20,7 +20,7 @@ services:
     build:
       context: ./server-gateway/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-gateway:3.0
+    image:  iot-server/server-gateway:1.0
     restart: always
     container_name: server-gateway
     hostname: server-gateway
@@ -31,26 +31,26 @@ services:
         aliases:
         - server-gateway
 
-  provide1:
+  book:
     build:
-      context: ./server-provide1/
+      context: ./server-book/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-provide1:3.0
+    image:  iot-server/server-book:1.0
     restart: always
-    container_name: server-provide1
-    hostname: server-provide1
+    container_name: server-book
+    hostname: server-book
     ports:
     - "8010:8010"
     networks:
       iotnet:
         aliases:
-        - server-provide1
+        - server-book
 
-  provide2:
+  base:
     build:
       context: ./server-base/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-base:3.0
+    image:  iot-server/server-base:1.0
     restart: always
     container_name: server-base
     hostname: server-base
@@ -60,6 +60,21 @@ services:
       iotnet:
         aliases:
         - server-base
+
+  admin:
+    build:
+      context: ./server-admin/
+      dockerfile: ./Dockerfile
+    image:  iot-server/server-admin:1.0
+    restart: always
+    container_name: server-admin
+    hostname: server-admin
+    ports:
+    - "8020:8030"
+    networks:
+      iotnet:
+        aliases:
+        - server-admin
 
 networks:
   iotnet:
