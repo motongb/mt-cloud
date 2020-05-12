@@ -17,7 +17,9 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
+#文件服务配置
 minio:
+  enable: true
   endpoint: http://192.168.120.128:9000
   accessKey: useraccess
   secretKey: mysecret

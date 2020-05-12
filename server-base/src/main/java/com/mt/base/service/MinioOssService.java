@@ -1,10 +1,11 @@
 package com.mt.base.service;
 
+import com.mt.base.configuration.MinioInstance;
 import com.mt.common.utils.UUIDUtils;
 import io.minio.MinioClient;
 import io.minio.PutObjectOptions;
 import io.minio.errors.*;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -22,11 +23,15 @@ import java.util.Optional;
  * Minio封装
  */
 @Service
-@AllArgsConstructor
 public class MinioOssService {
 
 
     private MinioClient minioClient;
+
+    @Autowired
+    MinioOssService(MinioInstance minioInstance) {
+        this.minioClient = minioInstance.getMinioClient();
+    }
 
 
     public Map<String, String> putObject(String bucketName, MultipartFile file, String isRename) throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, InternalException, XmlParserException, InvalidBucketNameException, ErrorResponseException, RegionConflictException {
