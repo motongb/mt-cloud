@@ -1,6 +1,8 @@
 package com.mt.base.service;
 
 import com.mt.base.configuration.MinioInstance;
+import com.mt.common.core.CodeEnum;
+import com.mt.common.exception.SysException;
 import com.mt.common.utils.UUIDUtils;
 import io.minio.MinioClient;
 import io.minio.PutObjectOptions;
@@ -17,6 +19,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -36,6 +39,7 @@ public class MinioOssService {
 
     public Map<String, String> putObject(String bucketName, MultipartFile file, String isRename) throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, InternalException, XmlParserException, InvalidBucketNameException, ErrorResponseException, RegionConflictException {
         Assert.isTrue(bucketName.length() > 3, "桶名称长度需要大于3！");
+        this.checkState();
         if (!this.minioClient.bucketExists(bucketName)) {
             this.minioClient.makeBucket(bucketName);
         }
@@ -52,13 +56,32 @@ public class MinioOssService {
     }
 
     public Optional<InputStream> getObject(String bucketName, String objectName) throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, InternalException, XmlParserException, InvalidBucketNameException, ErrorResponseException {
+        this.checkState();
         InputStream inputStream = this.minioClient.getObject(bucketName, objectName);
         return Optional.of(inputStream);
     }
 
+    /**
+     * 文件重命名
+     *
+     * @param origin
+     * @param isRename
+     * @return
+     */
     private String mix(String origin, String isRename) {
         Assert.notNull(origin, "原始文件名丢失！");
         String suffix = origin.replaceAll(".*\\.", "");
         return "0".equals(isRename) ? UUIDUtils.UUID() + "." + suffix : origin;
+    }
+
+    /**
+     * 检查文件服务开启状态
+     *
+     * @return
+     */
+    private void checkState() {
+        if (Objects.isNull(this.minioClient)) {
+            throw new SysException(CodeEnum.MINIO_CLOSED);
+        }
     }
 }

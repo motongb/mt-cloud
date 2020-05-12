@@ -13,7 +13,7 @@ import javax.persistence.Id;
  * @date 2020/3/25 17:47
  * @description:
  */
-@ApiModel(description = "基类")
+@ApiModel("基类")
 @Data
 public class BaseEntity {
 
@@ -28,7 +28,7 @@ public class BaseEntity {
     @ApiModelProperty(hidden = true)
     private String createBy;
 
-    @Order(value = "DESC")
+    @Order(value = "DESC", priority = 99)
     @ApiModelProperty(hidden = true)
     private String updateTime;
 

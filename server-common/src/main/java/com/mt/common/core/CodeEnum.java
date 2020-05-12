@@ -42,7 +42,12 @@ public enum CodeEnum {
     /**
      * 参数无效
      */
-    PARAMS_VALID(2000, "params valid");
+    PARAMS_VALID(2000, "params valid"),
+
+    /**
+     * minio服务已关闭
+     */
+    MINIO_CLOSED(2001, "minio服务已关闭");
 
 
     private int code;

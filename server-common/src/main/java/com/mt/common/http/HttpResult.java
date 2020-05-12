@@ -1,6 +1,7 @@
 package com.mt.common.http;
 
 import com.mt.common.core.CodeEnum;
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,8 +10,9 @@ import lombok.Data;
  * @date 2020/3/25 17:49
  * @description: 请求返回
  */
-@AllArgsConstructor
 @Data
+@ApiModel("请求返回")
+@AllArgsConstructor
 public class HttpResult<T> {
 
     private int code;
@@ -19,7 +21,7 @@ public class HttpResult<T> {
 
     private T data;
 
-//    private HttpResult(){}
+    private HttpResult(){}
 
     private HttpResult(CodeEnum codeEnum, T data) {
         this.code = codeEnum.getCode();

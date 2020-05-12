@@ -1,5 +1,6 @@
 package com.mt.common.core.base;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +15,7 @@ import java.util.List;
  * @description:
  */
 @Data
+@ApiModel("树表")
 @EqualsAndHashCode(callSuper = true)
 public class BaseTreeEntity extends BaseEntity {
 

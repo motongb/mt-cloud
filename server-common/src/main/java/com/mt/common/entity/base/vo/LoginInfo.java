@@ -1,5 +1,6 @@
 package com.mt.common.entity.base.vo;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotBlank;
  * @description: 登录信息
  */
 @Data
+@ApiModel("登录信息")
 public class LoginInfo {
 
     @NotBlank

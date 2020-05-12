@@ -2,6 +2,7 @@ package com.mt.common.entity.book;
 
 import com.mt.common.core.base.BaseEntity;
 import com.mt.common.entity.base.FileEntity;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,6 +19,7 @@ import java.util.List;
  */
 @Data
 @Table(name = "book")
+@ApiModel("书本类")
 @EqualsAndHashCode(callSuper = true)
 public class BookEntity extends BaseEntity {
 

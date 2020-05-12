@@ -1,6 +1,7 @@
 package com.mt.common.entity.base;
 
 import com.mt.common.core.base.BaseEntity;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
  */
 @Data
 @Table(name = "sys_file")
+@ApiModel("文件类")
 @EqualsAndHashCode(callSuper = true)
 public class FileEntity extends BaseEntity {
 
