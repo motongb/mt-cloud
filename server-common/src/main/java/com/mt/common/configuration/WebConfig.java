@@ -28,7 +28,8 @@ public class WebConfig implements WebMvcConfigurer {
                         "/webjars/**",
                         "/v2/**",
                         "/swagger-ui.html/**",
-                        "/base/login")
+                        "/sys/login",
+                        "/sys/file/download/**")
                 .addPathPatterns("/**");
     }
 
