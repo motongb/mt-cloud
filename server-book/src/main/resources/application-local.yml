@@ -22,7 +22,17 @@ logging:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://192.168.120.128:8000/eureka/
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
     prefer-ip-address: true
+
+#分布式事务配置
+seata:
+  tx-service-group: book_group #事务组
+  service:
+    vgroup-mapping:
+      book_group: seata-server #服务名
+    grouplist:
+      seata-server: 192.168.120.128:18090
+  enabled: false

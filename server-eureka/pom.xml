@@ -5,13 +5,12 @@
     <parent>
         <groupId>com.mt</groupId>
         <artifactId>app</artifactId>
-        <version>0.0.1</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>server-eureka</artifactId>
     <name>server-eureka</name>
     <description>eureka project for Spring Boot</description>
-    <version>${server-eureka.version}</version>
 
     <dependencies>
         <dependency>

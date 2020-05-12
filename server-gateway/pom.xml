@@ -6,19 +6,17 @@
     <parent>
         <groupId>com.mt</groupId>
         <artifactId>app</artifactId>
-        <version>0.0.1</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>server-gateway</artifactId>
     <name>server-gateway</name>
     <description>gateway project for Spring Boot</description>
-    <version>${server-gateway.version}</version>
 
     <dependencies>
         <dependency>
             <groupId>com.mt</groupId>
             <artifactId>server-common</artifactId>
-            <version>${server-common.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
@@ -46,7 +44,6 @@
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>${springboot-admin.version}</version>
         </dependency>
     </dependencies>
 

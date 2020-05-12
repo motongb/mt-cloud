@@ -6,7 +6,6 @@ spring:
     name: server-book
   profiles:
     active: local
-
 management:
   endpoints:
     web:
@@ -15,3 +14,6 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+feign:
+  httpclient:
+    connection-timeout: 5000

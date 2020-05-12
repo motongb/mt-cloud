@@ -6,7 +6,7 @@
 
     <groupId>com.mt</groupId>
     <artifactId>app</artifactId>
-    <version>0.0.1</version>
+    <version>${revision}</version>
     <name>app</name>
     <description>app project for Spring Boot</description>
 
@@ -20,23 +20,22 @@
     </modules>
 
     <properties>
+        <revision>0.0.1</revision>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
         <pagehelper.version>1.2.13</pagehelper.version>
         <swagger2.version>2.9.2</swagger2.version>
         <swagger-ui.version>1.9.4</swagger-ui.version>
         <jjwt.version>0.9.0</jjwt.version>
         <lombok.version>1.18.8</lombok.version>
+        <seata.version>1.2.0</seata.version>
+        <spring.cloud.alibaba.version>2.2.0.RELEASE</spring.cloud.alibaba.version>
+        <minio.version>7.0.2</minio.version>
 
         <java.version>1.8</java.version>
-        <maven-compiler.version>3.1</maven-compiler.version>
+        <maven-compiler.version>3.5</maven-compiler.version>
         <springboot.version>2.2.5.RELEASE</springboot.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <springboot-admin.version>2.2.0</springboot-admin.version>
-
-        <server-common.version>0.0.1</server-common.version>
-        <server-gateway.version>0.0.1</server-gateway.version>
-        <server-base.version>0.0.1</server-base.version>
-        <server-eureka.version>0.0.1</server-eureka.version>
     </properties>
 
     <dependencies>
@@ -61,6 +60,31 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--轻量级文件中间件-->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+            <!--阿里巴巴分布式事务框架-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${seata.version}</version>
+            </dependency>
+            <!--自定义公共类-->
+            <dependency>
+                <groupId>com.mt</groupId>
+                <artifactId>server-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!--JJWT库-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -108,6 +132,17 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--springCloud监控-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${springboot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${springboot-admin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

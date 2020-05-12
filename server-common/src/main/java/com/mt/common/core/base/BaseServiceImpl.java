@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Slf4j
 @Getter
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public abstract class BaseServiceImpl<T extends BaseEntity, M extends SysBaseMapper<T>> implements BaseService<T> {
 
     @Autowired

@@ -5,13 +5,12 @@
     <parent>
         <groupId>com.mt</groupId>
         <artifactId>app</artifactId>
-        <version>0.0.1</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>server-common</artifactId>
     <name>server-common</name>
     <description>common jar</description>
-    <version>${server-common.version}</version>
 
     <dependencies>
         <!--服务之间调用-->

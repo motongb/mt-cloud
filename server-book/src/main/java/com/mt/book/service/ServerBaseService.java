@@ -3,7 +3,6 @@ package com.mt.book.service;
 import com.mt.common.entity.base.FileEntity;
 import com.mt.common.http.HttpResult;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -19,7 +18,4 @@ public interface ServerBaseService {
 
     @PostMapping("/sys/file")
     HttpResult save(@RequestBody List<FileEntity> fileEntityList);
-
-    @GetMapping("/sys/file")
-    HttpResult<List<FileEntity>> getFileById(Long id);
 }

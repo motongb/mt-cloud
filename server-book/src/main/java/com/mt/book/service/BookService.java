@@ -5,6 +5,7 @@ import com.mt.book.dao.BookMapper;
 import com.mt.common.core.PageResult;
 import com.mt.common.core.base.BaseServiceImpl;
 import com.mt.common.entity.book.BookEntity;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -23,6 +24,7 @@ public class BookService extends BaseServiceImpl<BookEntity, BookMapper> {
     private ServerBaseService serverBaseService;
 
     @Override
+    @GlobalTransactional
     public BookEntity save(BookEntity bookEntity) {
         getBaseMapper().insertSelective(bookEntity);
         if (!CollectionUtils.isEmpty(bookEntity.getFiles())) {
