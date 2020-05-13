@@ -5,8 +5,10 @@ import com.mt.common.entity.base.DictEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -23,8 +25,21 @@ public class DictController {
 
     private DictService dictService;
 
-    @ApiOperation("获取字典列表")
+    @ApiOperation("查询")
     @GetMapping
+    public HttpResult get(@RequestParam(required = false) @ApiParam("父id") String parentId,
+                          @RequestParam(defaultValue = "true") @ApiParam("是否父级") Boolean isParent) {
+        Example example = new Example(DictEntity.class);
+        if (isParent) {
+            example.and().andIsNull("parentTreeId");
+        } else {
+            example.and().andEqualTo("parentTreeId", parentId);
+        }
+        return HttpResult.success(dictService.listByExample(example));
+    }
+
+    @ApiOperation("获取字典列表")
+    @GetMapping("/tree")
     public HttpResult tree() {
         return HttpResult.success(dictService.tree());
     }
@@ -45,7 +60,7 @@ public class DictController {
 
     @ApiOperation("删除")
     @DeleteMapping
-    public HttpResult batchDelete(List<Long> ids) {
+    public HttpResult batchDelete(@RequestBody List<Long> ids) {
         dictService.batchDelete(ids);
         return HttpResult.success();
     }
