@@ -41,6 +41,7 @@ public class RoleController {
 
     @DeleteMapping
     public HttpResult batchDelete(@RequestBody List<Long> ids) {
+        roleService.batchDelete(ids);
         return HttpResult.success();
     }
 }
