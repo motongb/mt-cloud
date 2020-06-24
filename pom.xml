@@ -5,18 +5,17 @@
     <packaging>pom</packaging>
 
     <groupId>com.mt</groupId>
-    <artifactId>app</artifactId>
+    <artifactId>mt-cloud</artifactId>
     <version>${revision}</version>
-    <name>app</name>
-    <description>app project for Spring Boot</description>
+    <name>mt-cloud</name>
+    <description>mt-cloud project for Spring Boot</description>
 
     <modules>
-        <module>server-common</module>
-        <module>server-eureka</module>
-        <module>server-book</module>
-        <module>server-base</module>
-        <module>server-gateway</module>
-        <module>server-admin</module>
+        <module>mt-cloud-common</module>
+        <module>mt-cloud-eureka</module>
+        <module>mt-cloud-book</module>
+        <module>mt-cloud-base</module>
+        <module>mt-cloud-gateway</module>
     </modules>
 
     <properties>
@@ -35,7 +34,6 @@
         <maven-compiler.version>3.5</maven-compiler.version>
         <springboot.version>2.2.5.RELEASE</springboot.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
-        <springboot-admin.version>2.2.0</springboot-admin.version>
     </properties>
 
     <dependencies>
@@ -82,7 +80,7 @@
             <!--自定义公共类-->
             <dependency>
                 <groupId>com.mt</groupId>
-                <artifactId>server-common</artifactId>
+                <artifactId>mt-cloud-common</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!--JJWT库-->
@@ -132,17 +130,6 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!--springCloud监控-->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${springboot-admin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId>
-                <version>${springboot-admin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

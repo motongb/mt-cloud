@@ -1,22 +1,22 @@
 module.exports = {
     apps: [
         {
-            name: 'server-eureka',
+            name: 'mt-cloud-eureka',
             script: 'java',
             args: [
                 '-jar',
-                'server-eureka/target/server-eureka.jar',
+                'mt-cloud-eureka/target/mt-cloud-eureka.jar',
                 '--server.port=8000'
             ],
             cwd: '.',
             interpreter: ''
         },
         {
-            name: 'server-gateway',
+            name: 'mt-cloud-gateway',
             script: 'java',
             args: [
                 '-jar',
-                'server-gateway/target/server-gateway.jar',
+                'mt-cloud-gateway/target/mt-cloud-gateway.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8080'
             ],
@@ -24,11 +24,11 @@ module.exports = {
             interpreter: ''
         },
         {
-            name: 'server-book',
+            name: 'mt-cloud-book',
             script: 'java',
             args: [
                 '-jar',
-                'server-book/target/server-book.jar',
+                'mt-cloud-book/target/mt-cloud-book.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8010'
             ],
@@ -36,24 +36,13 @@ module.exports = {
             interpreter: ''
         },
         {
-            name: 'server-base',
+            name: 'mt-cloud-base',
             script: 'java',
             args: [
                 '-jar',
-                'server-base/target/server-base.jar',
+                'mt-cloud-base/target/mt-cloud-base.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8020'
-            ],
-            cwd: '.',
-            interpreter: ''
-        },
-        {
-            name: 'server-admin',
-            script: 'java',
-            args: [
-                '-jar',
-                'server-admin/target/server-admin.jar',
-                '--server.port=8030'
             ],
             cwd: '.',
             interpreter: ''

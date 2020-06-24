@@ -3,78 +3,63 @@ version: '1.0'
 services:
   eureka:
     build:
-      context: ./server-eureka/
+      context: ./mt-cloud-eureka/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-eureka:1.0
+    image:  mt-cloud/mt-cloud-eureka:1.0
     restart: always
-    container_name: server-eureka
-    hostname: server-eureka
+    container_name: mt-cloud-eureka
+    hostname: mt-cloud-eureka
     ports:
     - "8000:8000"
     networks:
       iotnet:
         aliases:
-        - server-eureka
+        - mt-cloud-eureka
 
   gateway:
     build:
-      context: ./server-gateway/
+      context: ./mt-cloud-gateway/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-gateway:1.0
+    image:  mt-cloud/mt-cloud-gateway:1.0
     restart: always
-    container_name: server-gateway
-    hostname: server-gateway
+    container_name: mt-cloud-gateway
+    hostname: mt-cloud-gateway
     ports:
     - "8080:8080"
     networks:
       iotnet:
         aliases:
-        - server-gateway
+        - mt-cloud-gateway
 
   book:
     build:
-      context: ./server-book/
+      context: ./mt-cloud-book/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-book:1.0
+    image:  mt-cloud/mt-cloud-book:1.0
     restart: always
-    container_name: server-book
-    hostname: server-book
+    container_name: mt-cloud-book
+    hostname: mt-cloud-book
     ports:
     - "8010:8010"
     networks:
       iotnet:
         aliases:
-        - server-book
+        - mt-cloud-book
 
   base:
     build:
-      context: ./server-base/
+      context: ./mt-cloud-base/
       dockerfile: ./Dockerfile
-    image:  iot-server/server-base:1.0
+    image:  mt-cloud/mt-cloud-base:1.0
     restart: always
-    container_name: server-base
-    hostname: server-base
+    container_name: mt-cloud-base
+    hostname: mt-cloud-base
     ports:
     - "8020:8020"
     networks:
       iotnet:
         aliases:
-        - server-base
-
-  admin:
-    build:
-      context: ./server-admin/
-      dockerfile: ./Dockerfile
-    image:  iot-server/server-admin:1.0
-    restart: always
-    container_name: server-admin
-    hostname: server-admin
-    ports:
-    - "8020:8030"
-    networks:
-      iotnet:
-        aliases:
-        - server-admin
+        - mt-cloud-base
 
 networks:
   iotnet:
