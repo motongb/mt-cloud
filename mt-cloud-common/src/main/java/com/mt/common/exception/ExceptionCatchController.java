@@ -4,18 +4,16 @@ import com.mt.common.core.CodeEnum;
 import com.mt.common.http.HttpResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 全局controller异常处理类
  */
 @Slf4j
-@ControllerAdvice
+@RestControllerAdvice
 public class ExceptionCatchController {
 
-    @ResponseBody
     @ExceptionHandler(SysException.class)
     public HttpResult sysExceptionCatch(SysException e) {
         String message = e.getMessage();
@@ -32,7 +30,6 @@ public class ExceptionCatchController {
      * @param e
      * @return
      */
-    @ResponseBody
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public HttpResult methodArgumentExceptionCatch(MethodArgumentNotValidException e) {
         log.warn(e.getMessage(), e);
@@ -43,7 +40,6 @@ public class ExceptionCatchController {
     /**
      * 捕获所有异常
      */
-    @ResponseBody
     @ExceptionHandler(Exception.class)
     public HttpResult exceptionHandle(Exception e) {
         String message = e.getMessage();

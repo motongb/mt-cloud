@@ -10,10 +10,10 @@ import com.mt.common.exception.SysException;
  */
 public abstract class UserContext {
 
-    private static final ThreadLocal<UserEntity> context = new ThreadLocal<>();
+    private static final ThreadLocal<UserEntity> CONTEXT = new ThreadLocal<>();
 
     public static UserEntity getContext() {
-        UserEntity currentUser = context.get();
+        UserEntity currentUser = CONTEXT.get();
         if (currentUser == null) {
             throw new SysException(CodeEnum.TOKEN_EMPTY);
         }
@@ -21,10 +21,10 @@ public abstract class UserContext {
     }
 
     public static void setContext(UserEntity userEntity) {
-        context.set(userEntity);
+        CONTEXT.set(userEntity);
     }
 
     public static void clear() {
-        context.remove();
+        CONTEXT.remove();
     }
 }

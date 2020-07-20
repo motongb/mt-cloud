@@ -1,18 +1,9 @@
 server:
   port: 8080
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: ALWAYS
-
 spring:
   application:
-    name: gateway
+    name: mt-cloud-gateway
   profiles:
     active: local
   cloud:
@@ -23,13 +14,13 @@ spring:
           lower-case-service-id: true
       routes:
       - id: book
-        uri: lb://server-book
+        uri: lb://mt-cloud-book
         predicates:
         - Path=/book/**
         filters:
         - StripPrefix=1
       - id: base
-        uri: lb://server-base
+        uri: lb://mt-cloud-base
         predicates:
         - Path=/base/**
         filters:

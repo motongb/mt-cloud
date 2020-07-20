@@ -5,7 +5,6 @@ import com.google.common.collect.Lists;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -20,7 +19,6 @@ import java.util.List;
 import java.util.Set;
 
 //@Profile({"dev", "test"})
-@Configuration
 @EnableSwagger2
 @EnableSwaggerBootstrapUI
 @EnableConfigurationProperties(SwaggerProperties.class)

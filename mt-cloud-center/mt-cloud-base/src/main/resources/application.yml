@@ -1,0 +1,15 @@
+server:
+  port: 8020
+
+spring:
+  application:
+    name: mt-cloud-base
+  profiles:
+    active: local
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: always
+
+user:
+  defaultPwd: 123456

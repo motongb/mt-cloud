@@ -9,8 +9,6 @@ import org.apache.ibatis.mapping.SqlCommandType;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -23,8 +21,6 @@ import java.util.Properties;
  * @date 2020/4/9
  * @description 在mybatis准备sql阶段填充字段值
  */
-@ConfigurationProperties
-@Component
 @Intercepts({
         @Signature(method = "query", type = Executor.class, args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}),
         @Signature(method = "update", type = Executor.class, args = {MappedStatement.class, Object.class})})

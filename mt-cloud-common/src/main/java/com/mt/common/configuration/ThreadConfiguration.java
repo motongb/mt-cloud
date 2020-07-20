@@ -14,7 +14,6 @@ import java.util.concurrent.Executor;
  * @description: 线程池
  */
 @EnableAsync
-@ConfigurationProperties
 public class ThreadConfiguration implements AsyncConfigurer {
 
     @Override

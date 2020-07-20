@@ -6,7 +6,6 @@ import com.mt.common.core.UserContext;
 import com.mt.common.exception.SysException;
 import com.mt.common.utils.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
  * @description: 鉴权拦截器
  */
 @Slf4j
-@Component
 public class AuthInterceptor implements HandlerInterceptor {
 
 

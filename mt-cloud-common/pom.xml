@@ -7,9 +7,9 @@
         <artifactId>mt-cloud</artifactId>
         <version>${revision}</version>
     </parent>
+    <packaging>jar</packaging>
 
     <artifactId>mt-cloud-common</artifactId>
-    <name>mt-cloud-common</name>
     <description>common jar</description>
 
     <dependencies>
@@ -46,12 +46,13 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--用传统的xml或properties配置,配置类开头加上@PropertySource("classpath:your.properties")-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 </project>

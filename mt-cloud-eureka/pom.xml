@@ -9,7 +9,6 @@
     </parent>
 
     <artifactId>mt-cloud-eureka</artifactId>
-    <name>mt-cloud-eureka</name>
     <description>eureka project for Spring Boot</description>
 
     <dependencies>
@@ -18,24 +17,11 @@
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
     </dependencies>
-
-
     <build>
-        <finalName>mt-cloud-eureka</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.mt.eureka.EurekaApplication</mainClass>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
