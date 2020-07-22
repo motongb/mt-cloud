@@ -11,7 +11,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @description: mybatis拦截器配置
  */
 @Configuration
-@MapperScan(basePackages = "com.mt.*.dao")
+@MapperScan(basePackages = "com.mt.**.dao")
 public class MybatisConfig {
 
     @Bean

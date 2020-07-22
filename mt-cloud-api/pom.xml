@@ -23,6 +23,11 @@
             <groupId>com.mt</groupId>
             <artifactId>mt-cloud-common</artifactId>
         </dependency>
+        <!-- Hystrix -->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>

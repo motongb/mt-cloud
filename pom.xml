@@ -78,6 +78,12 @@
                 <artifactId>seata-spring-boot-starter</artifactId>
                 <version>${seata.version}</version>
             </dependency>
+            <!--feign接口-->
+            <dependency>
+                <groupId>com.mt</groupId>
+                <artifactId>mt-cloud-api-base</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!--自定义公共类-->
             <dependency>
                 <groupId>com.mt</groupId>

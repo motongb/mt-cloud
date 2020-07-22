@@ -1,6 +1,7 @@
 package com.mt.book.service;
 
 import com.github.pagehelper.PageHelper;
+import com.mt.api.base.feign.FileApi;
 import com.mt.book.dao.BookMapper;
 import com.mt.common.core.PageResult;
 import com.mt.common.core.base.BaseServiceImpl;
@@ -21,7 +22,7 @@ import java.util.List;
 public class BookService extends BaseServiceImpl<BookEntity, BookMapper> {
 
     @Autowired
-    private ServerBaseService serverBaseService;
+    private FileApi fileApi;
 
     @Override
     @GlobalTransactional
@@ -40,7 +41,7 @@ public class BookService extends BaseServiceImpl<BookEntity, BookMapper> {
      */
     private void handleFiles(BookEntity bookEntity) {
         bookEntity.getFiles().forEach(file -> file.setRelateId(bookEntity.getId()));
-        serverBaseService.save(bookEntity.getFiles());
+        fileApi.save(bookEntity.getFiles());
     }
 
     @Override

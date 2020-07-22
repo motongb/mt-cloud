@@ -1,25 +1,15 @@
 package com.mt.common.configuration;
 
-import com.mt.common.core.SystemConst;
-import feign.RequestInterceptor;
-import feign.RequestTemplate;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
+import com.mt.common.interceptor.FeignInterceptor;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @auther: motb
- * @date: 2020/4/27 16:51
+ * @author motb
+ * @date 2020/7/22 15:35
  * @description:
  */
-public class FeignConfig implements RequestInterceptor {
+@EnableFeignClients(defaultConfiguration = FeignInterceptor.class, basePackages = "com.mt.api.*.feign")
+public class FeignConfig {
 
-    @Override
-    public void apply(RequestTemplate requestTemplate) {
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        assert attributes != null;
-        HttpServletRequest request = attributes.getRequest();
-        requestTemplate.header(SystemConst.TOKEN_KEY, request.getHeader(SystemConst.TOKEN_KEY));
-    }
 }

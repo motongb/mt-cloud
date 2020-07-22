@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/iot_server?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://121.196.9.205:3306/mt_cloud_base?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
     password: 123456
   mail:
@@ -23,6 +23,10 @@ minio:
   endpoint: http://192.168.120.128:9000
   accessKey: useraccess
   secretKey: mysecret
+
+#默认密码
+user:
+  defaultPwd: 123456
 
 logging:
   level:

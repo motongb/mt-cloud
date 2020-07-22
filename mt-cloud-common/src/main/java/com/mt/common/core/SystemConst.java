@@ -36,4 +36,12 @@ public interface SystemConst {
      * 菜单
      */
     String MENU = "menu";
+
+    /**
+     * 服务配置
+     */
+    interface ServerConfig {
+        String MT_CLOUD_BASE = "mt-cloud-base";
+        String MT_CLOUD_BASE_FILE = "/sys/file";
+    }
 }
