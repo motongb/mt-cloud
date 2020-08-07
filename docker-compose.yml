@@ -31,21 +31,6 @@ services:
         aliases:
         - mt-cloud-gateway
 
-  book:
-    build:
-      context: ./mt-cloud-book/
-      dockerfile: ./Dockerfile
-    image:  mt-cloud/mt-cloud-book:1.0
-    restart: always
-    container_name: mt-cloud-book
-    hostname: mt-cloud-book
-    ports:
-    - "8010:8010"
-    networks:
-      iotnet:
-        aliases:
-        - mt-cloud-book
-
   base:
     build:
       context: ./mt-cloud-base/
@@ -55,11 +40,27 @@ services:
     container_name: mt-cloud-base
     hostname: mt-cloud-base
     ports:
+      - "8010:8010"
+    networks:
+      iotnet:
+        aliases:
+          - mt-cloud-base
+
+  book:
+    build:
+      context: ./mt-cloud-book/
+      dockerfile: ./Dockerfile
+    image:  mt-cloud/mt-cloud-book:1.0
+    restart: always
+    container_name: mt-cloud-book
+    hostname: mt-cloud-book
+    ports:
     - "8020:8020"
     networks:
       iotnet:
         aliases:
-        - mt-cloud-base
+        - mt-cloud-book
+
 
 networks:
   iotnet:

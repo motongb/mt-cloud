@@ -24,11 +24,11 @@ module.exports = {
             interpreter: ''
         },
         {
-            name: 'mt-cloud-book',
+            name: 'mt-cloud-base',
             script: 'java',
             args: [
                 '-jar',
-                'mt-cloud-book/target/mt-cloud-book.jar',
+                'mt-cloud-base/target/mt-cloud-base.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8010'
             ],
@@ -36,11 +36,11 @@ module.exports = {
             interpreter: ''
         },
         {
-            name: 'mt-cloud-base',
+            name: 'mt-cloud-book',
             script: 'java',
             args: [
                 '-jar',
-                'mt-cloud-base/target/mt-cloud-base.jar',
+                'mt-cloud-book/target/mt-cloud-book.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8020'
             ],
