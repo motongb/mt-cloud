@@ -30,6 +30,7 @@
         <seata.version>1.2.0</seata.version>
         <spring.cloud.alibaba.version>2.2.0.RELEASE</spring.cloud.alibaba.version>
         <minio.version>7.0.2</minio.version>
+        <logstash-tcp.version>6.4</logstash-tcp.version>
 
         <java.version>1.8</java.version>
         <maven-compiler.version>3.5</maven-compiler.version>
@@ -59,6 +60,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- elk日志收集-->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-tcp.version}</version>
+            </dependency>
             <!--轻量级文件中间件-->
             <dependency>
                 <groupId>io.minio</groupId>
@@ -144,7 +151,7 @@
     <repositories>
         <repository>
             <id>maven-ali</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <url>https://maven.aliyun.com/nexus/content/groups/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
