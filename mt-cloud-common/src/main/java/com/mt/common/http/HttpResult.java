@@ -30,23 +30,23 @@ public class HttpResult<T> {
         this.data = data;
     }
 
-    public static HttpResult success() {
+    public static <T> HttpResult<T> success() {
         return success(null);
     }
 
-    public static <T> HttpResult success(T data) {
+    public static <T> HttpResult<T> success(T data) {
         return new HttpResult<>(CodeEnum.SUCCESS, data);
     }
 
-    public static HttpResult fail() {
+    public static <T> HttpResult<T> fail() {
         return fail(CodeEnum.FAIL);
     }
 
-    public static HttpResult fail(CodeEnum codeEnum) {
+    public static <T> HttpResult<T> fail(CodeEnum codeEnum) {
         return new HttpResult<>(codeEnum, null);
     }
 
-    public static HttpResult fail(String message) {
+    public static <T> HttpResult<T> fail(String message) {
         return new HttpResult<>(CodeEnum.FAIL.getCode(), message, null);
     }
 }

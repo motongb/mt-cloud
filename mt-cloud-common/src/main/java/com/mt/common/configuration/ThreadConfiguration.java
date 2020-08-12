@@ -1,7 +1,6 @@
 package com.mt.common.configuration;
 
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

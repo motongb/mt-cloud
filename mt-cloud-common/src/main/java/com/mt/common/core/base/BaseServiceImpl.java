@@ -25,6 +25,10 @@ public abstract class BaseServiceImpl<T extends BaseEntity, M extends SysBaseMap
     @Autowired
     private M baseMapper;
 
+    public static Logger getLog() {
+        return log;
+    }
+
     @Override
     public T save(T t) {
         baseMapper.insertSelective(t);
@@ -42,7 +46,6 @@ public abstract class BaseServiceImpl<T extends BaseEntity, M extends SysBaseMap
         baseMapper.deleteByIdList(ids);
     }
 
-
     @Override
     public List<T> listByExample(Example example) {
         return baseMapper.selectByExample(example);
@@ -53,9 +56,5 @@ public abstract class BaseServiceImpl<T extends BaseEntity, M extends SysBaseMap
         PageHelper.startPage(pageNum, pageSize);
         List<T> result = baseMapper.selectByExample(example);
         return PageResult.paresPage(result);
-    }
-
-    public static Logger getLog() {
-        return log;
     }
 }

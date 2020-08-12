@@ -13,6 +13,10 @@ import java.util.List;
  */
 public class TreeBuilder<T extends BaseTreeEntity> {
 
+    public static <T> List<T> build(List treeNodes) {
+        return new TreeBuilder<>().self(treeNodes);
+    }
+
     private List<T> self(List<T> treeNodes) {
         List<T> trees = new ArrayList<>();
         for (T treeNode : treeNodes) {
@@ -29,9 +33,5 @@ public class TreeBuilder<T extends BaseTreeEntity> {
             }
         }
         return trees;
-    }
-
-    public static <T> List<T> build(List treeNodes) {
-        return new TreeBuilder<>().self(treeNodes);
     }
 }

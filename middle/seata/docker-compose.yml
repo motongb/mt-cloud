@@ -4,8 +4,8 @@ services:
     image: seataio/seata-server
     hostname: seata-server
     ports:
-    - "18090:8091"
+      - "18090:8091"
     volumes:
-    - ./config:/root/seata-config
+      - ./config:/root/seata-config
     environment:
-    - SEATA_CONFIG_NAME=file:/root/seata-config/registry
+      - SEATA_CONFIG_NAME=file:/root/seata-config/registry

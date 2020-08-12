@@ -17,11 +17,9 @@ import java.util.Optional;
 @AllArgsConstructor
 public class SwaggerHandler {
 
-    private SecurityConfiguration securityConfiguration;
-
-    private UiConfiguration uiConfiguration;
-
     private final SwaggerResourcesProvider swaggerResources;
+    private SecurityConfiguration securityConfiguration;
+    private UiConfiguration uiConfiguration;
 
     @Autowired
     public SwaggerHandler(SwaggerResourcesProvider swaggerResources) {

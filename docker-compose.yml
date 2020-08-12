@@ -10,11 +10,11 @@ services:
     container_name: mt-cloud-eureka
     hostname: mt-cloud-eureka
     ports:
-    - "8000:8000"
+      - "8000:8000"
     networks:
       iotnet:
         aliases:
-        - mt-cloud-eureka
+          - mt-cloud-eureka
 
   gateway:
     build:
@@ -25,11 +25,11 @@ services:
     container_name: mt-cloud-gateway
     hostname: mt-cloud-gateway
     ports:
-    - "8080:8080"
+      - "8080:8080"
     networks:
       iotnet:
         aliases:
-        - mt-cloud-gateway
+          - mt-cloud-gateway
 
   base:
     build:
@@ -55,11 +55,11 @@ services:
     container_name: mt-cloud-book
     hostname: mt-cloud-book
     ports:
-    - "8020:8020"
+      - "8020:8020"
     networks:
       iotnet:
         aliases:
-        - mt-cloud-book
+          - mt-cloud-book
 
 
 networks:

@@ -24,15 +24,12 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class EmailService {
 
+    private static final String CODE_LIST = "23456789QWERTYUIOPASDFGHJKLZXCVBNM";
     @Autowired
     private JavaMailSender javaMailSender;
-
     @Value("${spring.mail.username}")
     private String from;
-
     private Map<String, ValidCodeVo> cacheMailCodeMap = new ConcurrentHashMap<>();
-
-    private static final String CODE_LIST = "23456789QWERTYUIOPASDFGHJKLZXCVBNM";
 
     /**
      * 简单内容
@@ -42,6 +39,7 @@ public class EmailService {
      * @param content
      * @return
      */
+
     /***@Async**/
     public String sendSimpleMail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();

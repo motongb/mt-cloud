@@ -2,7 +2,6 @@ package com.mt.common.configuration;
 
 import com.mt.common.interceptor.FeignInterceptor;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author motb

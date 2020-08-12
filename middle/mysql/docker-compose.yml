@@ -5,12 +5,12 @@ services:
     container_name: mysql5.7
     restart: always
     ports:
-    - '3306:3306'
+      - '3306:3306'
     environment:
-    - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=123456
     volumes:
-    - ./data:/var/lib/mysql
-    - ./my.cnf:/etc/my.cnf
+      - ./data:/var/lib/mysql
+      - ./my.cnf:/etc/my.cnf
     command: [
       "--character-set-server=utf8",
       "--log-bin=mysql-bin",
