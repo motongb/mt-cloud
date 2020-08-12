@@ -1,0 +1,48 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:7.7.0
+    environment:
+      - "discovery.type=single-node"
+    volumes:
+      - data:/usr/share/elasticsearch/data
+    container_name: elasticsearch
+    hostname: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - elk
+  logstash:
+    image: logstash:7.7.0
+    container_name: logstash
+    volumes:
+      - ./logstash/logstash-tcp.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
+    ports:
+      - "5044:5044"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    networks:
+      - elk
+    depends_on: #标签解决了容器的依赖、启动先后的问题
+      - elasticsearch
+  kibana:
+    image: kibana:7.7.0
+    container_name: kibana
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+volumes:
+  data:
+
+networks:
+  elk:
+    driver: bridge
