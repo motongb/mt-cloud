@@ -1,5 +1,7 @@
 # Getting Started
 
+基于springcloud2.2搭建的微服务脚手架。
+
 ## 第三方库
 
 - jwt 0.9.0
@@ -57,3 +59,14 @@ sh deploy.sh
 ```shell script
 docker-compose up -d
 ```
+
+## todo
+
+|功能|状态|
+|:-------:|:------:|
+|minio文件存储|已完成|
+|ELK日志收集|已完成|
+|分布式事务|已完成|
+|任务调度|未开始|
+|mysql分库分表|未开始|
+|链路跟踪|未开始|
