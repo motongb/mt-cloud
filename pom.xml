@@ -15,8 +15,7 @@
         <module>mt-cloud-api</module>
         <module>mt-cloud-common</module>
         <module>mt-cloud-center</module>
-        <module>mt-cloud-eureka</module>
-        <module>mt-cloud-gateway</module>
+        <module>mt-cloud-dependency</module>
     </modules>
 
     <properties>
@@ -165,6 +164,7 @@
 
     <build>
         <finalName>${project.name}</finalName>
+
         <pluginManagement>
             <plugins>
                 <plugin>

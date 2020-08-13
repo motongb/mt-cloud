@@ -36,14 +36,6 @@ logging:
     max-size: 20MB
     path: application-log
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka/
-  instance:
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
-    prefer-ip-address: true
-
 #分布式事务配置
 seata:
   tx-service-group: base_group #事务组

@@ -3,4 +3,4 @@ RUN mkdir -p /application/target && ln -sf /usr/share/zoneinfo/Asia/Shanghai /et
 WORKDIR /application
 COPY target /application/target
 EXPOSE 8000
-ENTRYPOINT ["java" ,"-jar", "/application/target/server-eureka.jar"]
+ENTRYPOINT ["java" ,"-jar", "/application/target/mt-cloud-eureka.jar"]

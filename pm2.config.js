@@ -5,7 +5,7 @@ module.exports = {
             script: 'java',
             args: [
                 '-jar',
-                'mt-cloud-eureka/target/mt-cloud-eureka.jar',
+                'mt-cloud-dependency/mt-cloud-eureka/target/mt-cloud-eureka.jar',
                 '--server.port=8000'
             ],
             cwd: '.',
@@ -16,9 +16,21 @@ module.exports = {
             script: 'java',
             args: [
                 '-jar',
-                'mt-cloud-gateway/target/mt-cloud-gateway.jar',
+                'mt-cloud-dependency/mt-cloud-gateway/target/mt-cloud-gateway.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8080'
+            ],
+            cwd: '.',
+            interpreter: ''
+        },
+        {
+            name: 'mt-cloud-config',
+            script: 'java',
+            args: [
+                '-jar',
+                'mt-cloud-dependency/mt-cloud-config/target/mt-cloud-config.jar',
+                '--eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/',
+                '--server.port=8001'
             ],
             cwd: '.',
             interpreter: ''
@@ -28,8 +40,8 @@ module.exports = {
             script: 'java',
             args: [
                 '-jar',
-                'mt-cloud-base/target/mt-cloud-base.jar',
-                '--spring.profiles.active=local',
+                'mt-cloud-center/mt-cloud-base/target/mt-cloud-base.jar',
+                '--spring.cloud.config.profile=dev',
                 '--server.port=8010'
             ],
             cwd: '.',
@@ -40,7 +52,7 @@ module.exports = {
             script: 'java',
             args: [
                 '-jar',
-                'mt-cloud-book/target/mt-cloud-book.jar',
+                'mt-cloud-center/mt-cloud-book/target/mt-cloud-book.jar',
                 '--spring.profiles.active=local',
                 '--server.port=8020'
             ],

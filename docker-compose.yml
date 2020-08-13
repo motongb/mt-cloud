@@ -3,12 +3,14 @@ version: '1.0'
 services:
   eureka:
     build:
-      context: ./mt-cloud-eureka/
+      context: ./mt-cloud-dependency/mt-cloud-eureka/
       dockerfile: ./Dockerfile
     image:  mt-cloud/mt-cloud-eureka:1.0
     restart: always
     container_name: mt-cloud-eureka
     hostname: mt-cloud-eureka
+    environment:
+      - "server.port=8000"
     ports:
       - "8000:8000"
     networks:
@@ -18,12 +20,15 @@ services:
 
   gateway:
     build:
-      context: ./mt-cloud-gateway/
+      context: ./mt-cloud-dependency/mt-cloud-gateway/
       dockerfile: ./Dockerfile
     image:  mt-cloud/mt-cloud-gateway:1.0
     restart: always
     container_name: mt-cloud-gateway
     hostname: mt-cloud-gateway
+    environment:
+      - "server.port=8080"
+      - "spring.profiles.active=prod"
     ports:
       - "8080:8080"
     networks:
@@ -31,14 +36,35 @@ services:
         aliases:
           - mt-cloud-gateway
 
+  config:
+    build:
+      context: ./mt-cloud-dependency/mt-cloud-config/
+      dockerfile: ./Dockerfile
+    image:  mt-cloud/mt-cloud-config:1.0
+    restart: always
+    container_name: mt-cloud-config
+    hostname: mt-cloud-config
+    environment:
+      - "server.port=8001"
+      - "eureka.client.serviceUrl.defaultZone=http://mt-cloud-eureka:8000/eureka/"
+    ports:
+      - "8001:8001"
+    networks:
+      iotnet:
+        aliases:
+          - mt-cloud-config
+
   base:
     build:
-      context: ./mt-cloud-base/
+      context: ./mt-cloud-center/mt-cloud-base/
       dockerfile: ./Dockerfile
     image:  mt-cloud/mt-cloud-base:1.0
     restart: always
     container_name: mt-cloud-base
     hostname: mt-cloud-base
+    environment:
+      - "server.port=8010"
+      - "eureka.client.serviceUrl.defaultZone=http://mt-cloud-eureka:8000/eureka/"
     ports:
       - "8010:8010"
     networks:
@@ -48,12 +74,15 @@ services:
 
   book:
     build:
-      context: ./mt-cloud-book/
+      context: ./mt-cloud-center/mt-cloud-book/
       dockerfile: ./Dockerfile
     image:  mt-cloud/mt-cloud-book:1.0
     restart: always
     container_name: mt-cloud-book
     hostname: mt-cloud-book
+    environment:
+      - "server.port=8020"
+      - "spring.profiles.active=prod"
     ports:
       - "8020:8020"
     networks:
