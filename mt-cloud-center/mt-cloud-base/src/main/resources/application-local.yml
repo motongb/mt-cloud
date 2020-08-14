@@ -10,6 +10,16 @@ spring:
     password: BVMNYDZNBLRIOCOI
     properties.mail.display.sendmail: 验证码
     properties.mail.display.sendname: Motb Account Register
+  zipkin:
+    base-url: http://192.168.122.10:9411
+  sleuth:
+    web:
+      enabled: true
+    log:
+      slf4j:
+        enabled: true
+    feign:
+      enabled: true
 
 # mybatis配置
 mybatis:

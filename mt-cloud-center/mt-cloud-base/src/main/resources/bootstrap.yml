@@ -16,7 +16,7 @@ spring:
       discovery:
         enabled: true # 是否使用注册发现，获取配置中心的地址，默认为 false
         service-id: mt-cloud-config
-      profile: dev
+      profile: local
 
 eureka:
   client:

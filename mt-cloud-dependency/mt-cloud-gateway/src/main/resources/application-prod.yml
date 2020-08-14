@@ -1,3 +1,9 @@
+spring:
+  zipkin:
+    base-url: http://192.168.122.10:9411
+  sleuth:
+    web:
+      enabled: true
 eureka:
   client:
     service-url:
