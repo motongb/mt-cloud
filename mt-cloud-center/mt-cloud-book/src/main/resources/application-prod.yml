@@ -32,7 +32,7 @@ logging:
 eureka:
   client:
     service-url:
-      defaultZone: http://server-eureka:8000/eureka/
+      defaultZone: http://mt-cloud-eureka:8000/eureka/
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
     prefer-ip-address: true
