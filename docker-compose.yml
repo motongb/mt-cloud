@@ -31,6 +31,8 @@ services:
       - "spring.profiles.active=prod"
     ports:
       - "8080:8080"
+    depends_on:
+      - mt-cloud-eureka
     networks:
       iotnet:
         aliases:
@@ -49,6 +51,8 @@ services:
       - "eureka.client.serviceUrl.defaultZone=http://mt-cloud-eureka:8000/eureka/"
     ports:
       - "8001:8001"
+    depends_on:
+      - mt-cloud-eureka
     networks:
       iotnet:
         aliases:
@@ -68,6 +72,9 @@ services:
       - "spring.cloud.config.profile=dev"
     ports:
       - "8010:8010"
+    depends_on:
+      - mt-cloud-eureka
+      - mt-cloud-config
     networks:
       iotnet:
         aliases:
@@ -86,6 +93,9 @@ services:
       - "spring.profiles.active=prod"
     ports:
       - "8020:8020"
+    depends_on:
+      - mt-cloud-eureka
+      - mt-cloud-config
     networks:
       iotnet:
         aliases:
