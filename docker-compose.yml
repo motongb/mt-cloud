@@ -65,6 +65,7 @@ services:
     environment:
       - "server.port=8010"
       - "eureka.client.serviceUrl.defaultZone=http://mt-cloud-eureka:8000/eureka/"
+      - "spring.cloud.config.profile=dev"
     ports:
       - "8010:8010"
     networks:
