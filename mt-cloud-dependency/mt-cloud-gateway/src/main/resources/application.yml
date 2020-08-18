@@ -3,25 +3,6 @@ server:
 
 spring:
   application:
-    name: mt-cloud-gateway
+    name: @project.artifactId@
   profiles:
     active: local
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: false
-          lower-case-service-id: true
-      routes:
-        - id: base
-          uri: lb://mt-cloud-base
-          predicates:
-            - Path=/base/**
-          filters:
-            - StripPrefix=1
-        - id: book
-          uri: lb://mt-cloud-book
-          predicates:
-            - Path=/book/**
-          filters:
-            - StripPrefix=1

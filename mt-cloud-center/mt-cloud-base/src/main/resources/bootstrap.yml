@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: mt-cloud-base
+    name: @project.artifactId@
   profiles:
     active: local
   jackson:

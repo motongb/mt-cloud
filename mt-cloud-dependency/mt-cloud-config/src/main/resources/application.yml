@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: mt-cloud-config
+    name: @project.artifactId@
   profiles:
     active: git # 使用的 Spring Cloud Config Server 的存储器方案
   cloud:

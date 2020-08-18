@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: mt-cloud-eureka
+    name: @project.artifactId@
 
 eureka:
   instance:
