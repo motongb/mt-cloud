@@ -1,5 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.mt.common.configuration.SwaggerAutoConfiguration,\
-  com.mt.common.configuration.WebConfig,\
   com.mt.common.exception.ExceptionCatchController,\
   com.mt.common.configuration.MybatisConfig
