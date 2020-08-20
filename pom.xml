@@ -30,6 +30,7 @@
         <spring.cloud.alibaba.version>2.2.0.RELEASE</spring.cloud.alibaba.version>
         <minio.version>7.0.2</minio.version>
         <logstash-tcp.version>6.4</logstash-tcp.version>
+        <xxl-job.version>2.2.0</xxl-job.version>
 
         <java.version>1.8</java.version>
         <maven-compiler.version>3.5</maven-compiler.version>
@@ -59,6 +60,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--任务调度 xxl-job  https://www.xuxueli.com/index.html-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
             <!-- elk日志收集-->
             <dependency>
                 <groupId>net.logstash.logback</groupId>

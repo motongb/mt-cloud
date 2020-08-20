@@ -18,7 +18,6 @@ services:
     container_name: logstash
     volumes:
       - ./logstash/logstash-tcp.conf:/usr/share/logstash/pipeline/logstash.conf
-      - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
     ports:
       - "5044:5044"
       - "9600:9600"

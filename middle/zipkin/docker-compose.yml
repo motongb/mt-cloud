@@ -1,0 +1,12 @@
+version: '2'
+services:
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    hostname: zipkin
+    restart: always
+    environment:
+      - STORAGE_TYPE=elasticsearch
+      - ES_HOSTS=http://127.0.0.1:9200 #elasticsearch地址
+    ports:
+      - "9411:9411"

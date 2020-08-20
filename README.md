@@ -70,7 +70,7 @@ docker-compose up -d
 |配置中心config|已完成|
 |链路跟踪zipkin|已完成|
 |服务熔断、限流|已完成|
-|任务调度|未开始|
+|任务调度XXL-JOB|已完成|
 |多数据源读写分离|未开始|
 |mysql分库分表|未开始|
 |持续交付Jenkins|未开始|
