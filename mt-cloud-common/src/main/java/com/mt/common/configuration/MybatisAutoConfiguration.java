@@ -12,7 +12,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @Configuration
 @MapperScan(basePackages = "com.mt.**.dao")
-public class MybatisConfig {
+public class MybatisAutoConfiguration {
 
     @Bean
     public MybatisAuthInterceptor mybatisAuthInterceptor() {

@@ -1,4 +1,8 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mt.common.configuration.ThreadConfiguration,\
   com.mt.common.configuration.SwaggerAutoConfiguration,\
   com.mt.common.exception.ExceptionCatchController,\
-  com.mt.common.configuration.MybatisConfig
+  com.mt.common.configuration.MybatisAutoConfiguration,\
+  com.mt.common.configuration.WebAutoConfiguration,\
+  com.mt.common.configuration.SystemAutoConfiguration,\
+  com.mt.common.configuration.XxlJobAutoConfiguration

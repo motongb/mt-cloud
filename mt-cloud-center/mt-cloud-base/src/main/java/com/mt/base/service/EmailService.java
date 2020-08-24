@@ -27,8 +27,10 @@ public class EmailService {
     private static final String CODE_LIST = "23456789QWERTYUIOPASDFGHJKLZXCVBNM";
     @Autowired
     private JavaMailSender javaMailSender;
+
     @Value("${spring.mail.username}")
     private String from;
+
     private Map<String, ValidCodeVo> cacheMailCodeMap = new ConcurrentHashMap<>();
 
     /**

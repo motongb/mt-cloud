@@ -9,6 +9,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @description:
  */
 @EnableFeignClients(defaultConfiguration = FeignInterceptor.class, basePackages = "com.mt.api.*.feign")
-public class FeignConfig {
+public class FeignConfiguration {
 
 }

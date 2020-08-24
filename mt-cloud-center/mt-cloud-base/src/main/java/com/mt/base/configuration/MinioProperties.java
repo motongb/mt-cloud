@@ -2,23 +2,33 @@ package com.mt.base.configuration;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * Minio配置
  */
 @Data
-@Configuration
-@ConfigurationProperties(prefix = "minio")
-public class MinioConfig {
+@ConfigurationProperties("minio")
+public class MinioProperties {
 
-    private boolean enable;
+    /**
+     * 启用状态
+     */
+    private boolean enable = false;
 
-    private String endpoint;
+    /**
+     * IP端口
+     */
+    private String endpoint = "";
 
-    private String accessKey;
+    /**
+     * access
+     */
+    private String accessKey = "";
 
-    private String secretKey;
+    /**
+     * secret
+     */
+    private String secretKey = "";
 
 //    @Bean
 //    public MinioClient minioClient() throws InvalidPortException, InvalidEndpointException {

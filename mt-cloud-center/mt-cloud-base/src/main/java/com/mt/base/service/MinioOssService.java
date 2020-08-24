@@ -1,6 +1,6 @@
 package com.mt.base.service;
 
-import com.mt.base.configuration.MinioInstance;
+import com.mt.base.configuration.MinioAutoConfiguration;
 import com.mt.common.core.CodeEnum;
 import com.mt.common.exception.SysException;
 import com.mt.common.utils.UUIDUtils;
@@ -28,12 +28,11 @@ import java.util.Optional;
 @Service
 public class MinioOssService {
 
-
     private MinioClient minioClient;
 
     @Autowired
-    MinioOssService(MinioInstance minioInstance) {
-        this.minioClient = minioInstance.getMinioClient();
+    MinioOssService(MinioAutoConfiguration minioAutoConfiguration) {
+        this.minioClient = minioAutoConfiguration.getMinioClient();
     }
 
 

@@ -2,13 +2,13 @@ package com.mt.base.service;
 
 import com.github.pagehelper.PageHelper;
 import com.mt.base.dao.UserMapper;
+import com.mt.common.configuration.SystemProperties;
 import com.mt.common.core.PageResult;
 import com.mt.common.core.SystemConst;
 import com.mt.common.core.base.BaseServiceImpl;
 import com.mt.common.entity.base.UserEntity;
 import com.mt.common.entity.base.UserRelRoleEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.DigestUtils;
@@ -25,8 +25,8 @@ import java.util.stream.Collectors;
 @Service
 public class UserService extends BaseServiceImpl<UserEntity, UserMapper> {
 
-    @Value("${user.defaultPwd}")
-    private String defaultPwd;
+    @Autowired
+    private SystemProperties systemProperties;
 
     @Autowired
     private UserRelRoleService userRelRoleService;
@@ -43,7 +43,7 @@ public class UserService extends BaseServiceImpl<UserEntity, UserMapper> {
 
     @Override
     public UserEntity save(UserEntity userEntity) {
-        String password = StringUtils.isEmpty(userEntity.getPassword()) ? defaultPwd : userEntity.getPassword();
+        String password = StringUtils.isEmpty(userEntity.getPassword()) ? systemProperties.getDefaultPwd() : userEntity.getPassword();
         userEntity.setPassword(DigestUtils.md5DigestAsHex(password.getBytes()));
         getBaseMapper().insertSelective(userEntity);
         if (!CollectionUtils.isEmpty(userEntity.getRoles())) {

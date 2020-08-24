@@ -2,6 +2,7 @@ package com.mt.common.configuration;
 
 import com.mt.common.interceptor.AuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -14,7 +15,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @description:
  */
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+@ConditionalOnProperty(prefix = "system", name = "enableTokenAuth", havingValue = "true")
+public class WebAutoConfiguration implements WebMvcConfigurer {
 
     @Autowired
     private AuthInterceptor authInterceptor;

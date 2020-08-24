@@ -1,6 +1,6 @@
 package com.mt.common.annotation;
 
-import com.mt.common.configuration.FeignConfig;
+import com.mt.common.configuration.FeignConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
@@ -14,6 +14,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import({FeignConfig.class})
+@Import({FeignConfiguration.class})
 public @interface EnableOpenFeign {
 }
