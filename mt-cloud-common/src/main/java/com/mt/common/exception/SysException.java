@@ -17,5 +17,4 @@ public class SysException extends RuntimeException {
         super(codeEnum.getMsg());
         this.codeEnum = codeEnum;
     }
-
 }

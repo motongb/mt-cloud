@@ -16,11 +16,11 @@ public class Provide1Controller {
 
     @GetMapping("client1")
     public HttpResult provide1() {
-//        try {
-//            Thread.sleep(20000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return HttpResult.success("client1 success");
     }
 }
