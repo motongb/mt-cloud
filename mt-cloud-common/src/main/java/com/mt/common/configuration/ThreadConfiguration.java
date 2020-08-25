@@ -16,7 +16,7 @@ import java.util.concurrent.Executor;
  */
 @EnableAsync
 @Configuration
-@ConditionalOnProperty(prefix = "system", name = "enableThreadExecutor", havingValue = "true")
+@ConditionalOnProperty(prefix = "system", name = "enable-thread-executor", havingValue = "true")
 public class ThreadConfiguration implements AsyncConfigurer {
 
     @Override

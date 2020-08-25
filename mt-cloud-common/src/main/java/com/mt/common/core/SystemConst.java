@@ -41,7 +41,8 @@ public interface SystemConst {
      * 服务配置
      */
     interface ServerConfig {
-        String MT_CLOUD_BASE = "mt-cloud-base";
-        String MT_CLOUD_BASE_FILE = "/sys/file";
+        String MT_CLOUD_MIDDLE = "mt-cloud-middle";
+
+        String MT_CLOUD_MIDDLE_FILE = "/file";
     }
 }

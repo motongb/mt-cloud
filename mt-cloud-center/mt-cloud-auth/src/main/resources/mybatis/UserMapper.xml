@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mt.auth.dao.UserMapper">
+
+    <resultMap id="resultMap" type="com.mt.common.entity.base.UserEntity">
+        <id property="id" column="id"/>
+        <collection property="roles" ofType="com.mt.common.entity.base.RoleEntity" column="id"
+                    javaType="java.util.ArrayList" select="getRole"/>
+    </resultMap>
+
+    <sql id="column">
+        id,name,account,phone,age,profession,type
+    </sql>
+
+    <select id="selectByList" resultMap="resultMap" parameterType="com.mt.common.entity.base.UserEntity">
+        select
+        <include refid="column"/>
+        from sys_user
+        <where>
+            <if test="account !=null and account !=''">
+                and account = #{account}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+    <select id="getRole" parameterType="long" resultType="com.mt.common.entity.base.RoleEntity">
+        select r.id,r.name,r.code
+        from sys_role r
+        left join sys_user_role ur on ur.role_id = r.id
+        where ur.user_id = #{id}
+    </select>
+</mapper>

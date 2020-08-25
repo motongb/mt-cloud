@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * @description:
  */
 @Data
-@Table(name = "sys_file")
+@Table(name = "file")
 @ApiModel("文件类")
 @EqualsAndHashCode(callSuper = true)
 public class FileEntity extends BaseEntity {

@@ -1,6 +1,7 @@
 spring:
   zipkin:
     base-url: http://192.168.122.10:9411
+    enabled: false
   sleuth:
     web:
       enabled: true
@@ -14,40 +15,25 @@ spring:
           enabled: false
           lower-case-service-id: true
       routes:
-        - id: base
-          uri: lb://mt-cloud-base
+        - id: auth
+          uri: lb://mt-cloud-auth
           predicates:
-            - Path=/base/**
+            - Path=/auth/**
           filters:
             - StripPrefix=1
-            - name: Hystrix
-              args:
-                name: default
-                fallbackUri: 'forward:/defaultFallback'
-            - name: RequestRateLimiter
-              args:
-                key-resolver: '#{@hostKeyResolver}'
-                redis-rate-limiter.replenishRate: 10
-                redis-rate-limiter.burstCapacity: 20
-        - id: book
-          uri: lb://mt-cloud-book
+        - id: middle
+          uri: lb://mt-cloud-middle
           predicates:
-            - Path=/book/**
+            - Path=/middle/**
           filters:
             - StripPrefix=1
-            - name: Hystrix
-              args:
-                name: default
-                fallbackUri: 'forward:/defaultFallback'
-            - name: RequestRateLimiter
-              args:
-                key-resolver: '#{@hostKeyResolver}'
-                redis-rate-limiter.replenishRate: 10
-                redis-rate-limiter.burstCapacity: 20
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka/
-  instance:
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
-    prefer-ip-address: true
+#      default-filters:  ## 开启限流，需要连上redis
+#        - name: Hystrix
+#          args:
+#            name: default
+#            fallbackUri: 'forward:/defaultFallback'
+#        - name: RequestRateLimiter
+#          args:
+#            key-resolver: '#{@hostKeyResolver}'
+#            redis-rate-limiter.replenishRate: 10
+#            redis-rate-limiter.burstCapacity: 20

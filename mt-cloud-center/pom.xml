@@ -15,8 +15,8 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>mt-cloud-base</module>
-        <module>mt-cloud-book</module>
+        <module>mt-cloud-auth</module>
+        <module>mt-cloud-middle</module>
     </modules>
 
     <dependencies>

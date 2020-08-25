@@ -31,13 +31,13 @@ mt-cloud-eureka 8000
 
 mt-cloud-gateway 8080
 
-- 基础服务
+- 认证服务
 
-mt-cloud-base 8010
+mt-cloud-auth 8010
 
-- 业务服务1
+- 中间件服务
 
-mt-cloud-book 8020
+mt-cloud-middle 8020
 
 ## 中间件
 

@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @description:
  */
 @Configuration
-@ConditionalOnProperty(prefix = "system", name = "enableTokenAuth", havingValue = "true")
+@ConditionalOnProperty(prefix = "system", name = "enable-token-auth", havingValue = "true")
 public class WebAutoConfiguration implements WebMvcConfigurer {
 
     @Autowired
@@ -38,7 +38,7 @@ public class WebAutoConfiguration implements WebMvcConfigurer {
                         "/v2/**",
                         "/swagger-ui.html/**",
                         "/sys/login",
-                        "/sys/file/download/**")
+                        "/file/download/**")
                 .addPathPatterns("/**");
     }
 

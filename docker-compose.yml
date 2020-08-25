@@ -28,7 +28,10 @@ services:
     hostname: mt-cloud-gateway
     environment:
       - "server.port=8080"
-      - "spring.profiles.active=prod"
+      - "eureka.client.serviceUrl.defaultZone=http://mt-cloud-eureka:8000/eureka/"
+      - "spring.cloud.config.discovery.enabled=true"
+      - "spring.cloud.config.enabled=true"
+      - "spring.cloud.config.profile=dev"
     ports:
       - "8080:8080"
     depends_on:
@@ -58,17 +61,19 @@ services:
         aliases:
           - mt-cloud-config
 
-  base:
+  auth:
     build:
-      context: ./mt-cloud-center/mt-cloud-base/
+      context: ./mt-cloud-center/mt-cloud-auth/
       dockerfile: ./Dockerfile
-    image:  mt-cloud/mt-cloud-base:1.0
+    image:  mt-cloud/mt-cloud-auth:1.0
     restart: always
-    container_name: mt-cloud-base
-    hostname: mt-cloud-base
+    container_name: mt-cloud-auth
+    hostname: mt-cloud-auth
     environment:
       - "server.port=8010"
       - "eureka.client.serviceUrl.defaultZone=http://mt-cloud-eureka:8000/eureka/"
+      - "spring.cloud.config.discovery.enabled=true"
+      - "spring.cloud.config.enabled=true"
       - "spring.cloud.config.profile=dev"
     ports:
       - "8010:8010"
@@ -78,19 +83,22 @@ services:
     networks:
       iotnet:
         aliases:
-          - mt-cloud-base
+          - mt-cloud-auth
 
-  book:
+  middle:
     build:
-      context: ./mt-cloud-center/mt-cloud-book/
+      context: ./mt-cloud-center/mt-cloud-middle/
       dockerfile: ./Dockerfile
-    image:  mt-cloud/mt-cloud-book:1.0
+    image:  mt-cloud/mt-cloud-middle:1.0
     restart: always
-    container_name: mt-cloud-book
-    hostname: mt-cloud-book
+    container_name: mt-cloud-middle
+    hostname: mt-cloud-middle
     environment:
       - "server.port=8020"
-      - "spring.profiles.active=prod"
+      - "eureka.client.serviceUrl.defaultZone=http://mt-cloud-eureka:8000/eureka/"
+      - "spring.cloud.config.discovery.enabled=true"
+      - "spring.cloud.config.enabled=true"
+      - "spring.cloud.config.profile=dev"
     ports:
       - "8020:8020"
     depends_on:
@@ -99,7 +107,7 @@ services:
     networks:
       iotnet:
         aliases:
-          - mt-cloud-book
+          - mt-cloud-middle
 
 
 networks:

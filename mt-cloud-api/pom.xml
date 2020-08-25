@@ -14,7 +14,7 @@
     <description>Api project for Spring Boot</description>
 
     <modules>
-        <module>mt-cloud-api-base</module>
+        <module>mt-cloud-api-middle</module>
     </modules>
 
 
