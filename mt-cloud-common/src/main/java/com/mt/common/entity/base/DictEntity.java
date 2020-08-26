@@ -10,9 +10,9 @@ import tk.mybatis.mapper.annotation.Order;
 import javax.persistence.Table;
 
 /**
- * @auther: motb
- * @date: 2020/5/12 16:31
- * @description: 字典
+ * @author motb
+ * @date 2020/5/12 16:31
+ * @description 字典
  */
 @Data
 @Table(name = "sys_dict")

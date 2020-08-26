@@ -21,17 +21,17 @@ public class MinioAutoConfiguration {
 
     private MinioClient minioClient;
 
-    @Bean
-    @ConditionalOnMissingBean
-    public MinioProperties minioProperties() {
-        return new MinioProperties();
-    }
-
     @Autowired
     MinioAutoConfiguration(MinioProperties minioProperties) throws InvalidPortException, InvalidEndpointException {
         if (minioProperties.isEnable()) {
             this.minioClient = new MinioClient(minioProperties.getEndpoint(), minioProperties.getAccessKey(), minioProperties.getSecretKey());
         }
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public MinioProperties minioProperties() {
+        return new MinioProperties();
     }
 
 }

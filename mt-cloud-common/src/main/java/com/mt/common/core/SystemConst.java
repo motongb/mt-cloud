@@ -3,7 +3,7 @@ package com.mt.common.core;
 /**
  * @author motb
  * @date 2020/3/25 17:58
- * @description:
+ * @description
  */
 public interface SystemConst {
 

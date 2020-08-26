@@ -1,16 +1,16 @@
 package com.mt.middle.controller;
 
-import com.mt.middle.service.BookService;
 import com.mt.common.entity.book.BookEntity;
 import com.mt.common.http.HttpResult;
+import com.mt.middle.service.BookService;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @auther: motb
- * @date: 2020/4/27 17:20
- * @description:
+ * @author motb
+ * @date 2020/4/27 17:20
+ * @description
  */
 @Api(tags = "图书管理-书本管理")
 @RestController

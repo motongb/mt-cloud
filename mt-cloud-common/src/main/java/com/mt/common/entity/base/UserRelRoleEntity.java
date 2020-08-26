@@ -10,9 +10,9 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
- * @auther: motb
- * @date: 2020/4/17 09:19
- * @description:
+ * @author motb
+ * @date 2020/4/17 09:19
+ * @description
  */
 @Data
 @ApiModel("用户角色关联")

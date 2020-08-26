@@ -8,7 +8,7 @@ import lombok.Data;
 /**
  * @author motb
  * @date 2020/3/25 17:49
- * @description: 请求返回
+ * @description 请求返回
  */
 @Data
 @ApiModel("请求返回")

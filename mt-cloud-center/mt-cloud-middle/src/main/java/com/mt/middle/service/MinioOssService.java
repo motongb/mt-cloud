@@ -1,9 +1,9 @@
 package com.mt.middle.service;
 
-import com.mt.middle.configuration.MinioAutoConfiguration;
 import com.mt.common.core.CodeEnum;
 import com.mt.common.exception.SysException;
 import com.mt.common.utils.UUIDUtils;
+import com.mt.middle.configuration.MinioAutoConfiguration;
 import io.minio.MinioClient;
 import io.minio.PutObjectOptions;
 import io.minio.errors.*;

@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Auther: motb
- * @Date: 2019/10/26 17:19
- * @Description:
+ * @author motb
+ * @date 2019/10/26 17:19
+ * @description
  */
 public class TreeBuilder<T extends BaseTreeEntity> {
 

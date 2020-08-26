@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/4/14 14:38
- * @description:
+ * @author motb
+ * @date 2020/4/14 14:38
+ * @description
  */
 @Api(tags = "系统-角色")
 @RestController
@@ -24,7 +24,7 @@ public class RoleController {
 
     @GetMapping
     public HttpResult get() {
-        return HttpResult.success(roleService.getBaseMapper().selectAll());
+        return HttpResult.success(roleService.selectAll());
     }
 
     @PostMapping

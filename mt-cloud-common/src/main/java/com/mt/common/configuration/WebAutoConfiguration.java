@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * @author motb
  * @date 2020/3/25 23:03
- * @description:
+ * @description
  */
 @Configuration
 @ConditionalOnProperty(prefix = "system", name = "enable-token-auth", havingValue = "true")

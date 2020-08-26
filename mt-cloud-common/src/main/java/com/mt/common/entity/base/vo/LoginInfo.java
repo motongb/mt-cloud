@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 /**
  * @author motb
  * @date 2020/3/25 20:42
- * @description: 登录信息
+ * @description 登录信息
  */
 @Data
 @ApiModel("登录信息")

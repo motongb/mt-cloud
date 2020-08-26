@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * @author motb
  * @date 2020/3/25 18:03
- * @description:
+ * @description
  */
 @Getter
 public enum CodeEnum {

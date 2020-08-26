@@ -8,9 +8,9 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.Table;
 
 /**
- * @auther: motb
- * @date: 2020/5/14 14:50
- * @description:
+ * @author motb
+ * @date 2020/5/14 14:50
+ * @description
  */
 @Data
 @Table(name = "sys_config")

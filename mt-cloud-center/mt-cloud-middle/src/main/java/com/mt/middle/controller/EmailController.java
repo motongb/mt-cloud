@@ -9,9 +9,9 @@ import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @auther: motb
- * @date: 2020/4/24 14:46
- * @description:
+ * @author motb
+ * @date 2020/4/24 14:46
+ * @description
  */
 @Api(tags = "邮箱管理")
 @RestController

@@ -10,9 +10,9 @@ import tk.mybatis.mapper.annotation.Order;
 import javax.persistence.Table;
 
 /**
- * @auther: motb
- * @date: 2020/4/13 16:20
- * @description: 菜单类
+ * @author motb
+ * @date 2020/4/13 16:20
+ * @description 菜单类
  */
 @Data
 @Table(name = "sys_menu")

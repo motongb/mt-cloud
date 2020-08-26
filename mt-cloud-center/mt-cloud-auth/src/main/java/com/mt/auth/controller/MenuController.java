@@ -1,6 +1,6 @@
 package com.mt.auth.controller;
 
-import com.mt.auth.service.MenuService;
+import com.mt.auth.service.impl.MenuServiceImpl;
 import com.mt.common.entity.base.MenuEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/4/14 08:55
- * @description:
+ * @author motb
+ * @date 2020/4/14 08:55
+ * @description
  */
 @Api(tags = "系统-菜单")
 @RestController
@@ -21,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MenuController {
 
-    private MenuService menuService;
+    private MenuServiceImpl menuService;
 
     @PostMapping
     public HttpResult save(@RequestBody MenuEntity menuEntity) {

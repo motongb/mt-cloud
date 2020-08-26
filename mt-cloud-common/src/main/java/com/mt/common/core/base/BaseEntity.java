@@ -11,7 +11,7 @@ import javax.persistence.Id;
 /**
  * @author motb
  * @date 2020/3/25 17:47
- * @description:
+ * @description
  */
 @ApiModel("基类")
 @Data

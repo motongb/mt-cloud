@@ -16,9 +16,9 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @auther: motb
- * @date: 2020/4/24 14:45
- * @description:
+ * @author motb
+ * @date 2020/4/24 14:45
+ * @description
  */
 @Slf4j
 @Service

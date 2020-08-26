@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @author motb
  * @date 2020/7/22 14:35
- * @description:
+ * @description
  */
 @Api(tags = "文件管理")
 @FeignClient(path = SystemConst.ServerConfig.MT_CLOUD_MIDDLE_FILE, name = SystemConst.ServerConfig.MT_CLOUD_MIDDLE)

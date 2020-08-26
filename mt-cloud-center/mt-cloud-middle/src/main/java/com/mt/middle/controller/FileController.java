@@ -4,8 +4,8 @@ import com.mt.api.middle.feign.FileApi;
 import com.mt.common.core.SystemConst;
 import com.mt.common.entity.base.FileEntity;
 import com.mt.common.http.HttpResult;
-import com.mt.middle.service.FileService;
 import com.mt.middle.service.MinioOssService;
+import com.mt.middle.service.impl.FileServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +19,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @auther: motb
- * @date: 2020/4/27 17:02
- * @description:
+ * @author motb
+ * @date 2020/4/27 17:02
+ * @description
  */
 
 @RestController
@@ -29,13 +29,13 @@ import java.util.Optional;
 @AllArgsConstructor
 public class FileController implements FileApi {
 
-    private FileService fileService;
+    private FileServiceImpl fileService;
 
     private MinioOssService minioOssService;
 
     @Override
     public HttpResult save(List<FileEntity> fileEntityList) {
-        fileService.saveList(fileEntityList);
+        fileService.getBaseMapper().insertList(fileEntityList);
         return HttpResult.success();
     }
 

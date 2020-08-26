@@ -10,9 +10,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @auther: motb
- * @date: 2020/4/27 16:51
- * @description:
+ * @author motb
+ * @date 2020/4/27 16:51
+ * @description
  */
 public class FeignInterceptor implements RequestInterceptor {
 

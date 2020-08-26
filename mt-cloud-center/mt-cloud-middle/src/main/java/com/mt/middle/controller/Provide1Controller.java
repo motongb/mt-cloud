@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author motb
  * @date 2020/3/26 0:26
- * @description:
+ * @description
  */
 @Api(tags = "Provide1 Controller")
 @RestController

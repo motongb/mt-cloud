@@ -5,9 +5,9 @@ import com.mt.common.entity.base.FileEntity;
 import tk.mybatis.mapper.additional.insert.InsertListMapper;
 
 /**
- * @auther: motb
- * @date: 2020/4/27 16:38
- * @description:
+ * @author motb
+ * @date 2020/4/27 16:38
+ * @description
  */
 public interface FileMapper extends SysBaseMapper<FileEntity>, InsertListMapper<FileEntity> {
 }

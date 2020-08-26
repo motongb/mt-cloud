@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * @author motb
  * @date 2020/7/22 15:35
- * @description:
+ * @description
  */
 @EnableFeignClients(defaultConfiguration = FeignInterceptor.class, basePackages = "com.mt.api.*.feign")
 public class FeignConfiguration {

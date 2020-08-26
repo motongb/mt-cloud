@@ -8,9 +8,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @auther: motb
- * @date: 2020/5/14 14:54
- * @description:
+ * @author motb
+ * @date 2020/5/14 14:54
+ * @description
  */
 @Api(tags = "系统-配置管理")
 @RestController
@@ -22,7 +22,7 @@ public class SysConfigController {
 
     @GetMapping
     public HttpResult get() {
-        return HttpResult.success(sysConfigService.getBaseMapper().selectAll());
+        return HttpResult.success(sysConfigService.selectAll());
     }
 
     @PutMapping

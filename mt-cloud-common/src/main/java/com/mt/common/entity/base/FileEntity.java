@@ -9,9 +9,9 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.Table;
 
 /**
- * @auther: motb
- * @date: 2020/4/27 16:35
- * @description:
+ * @author motb
+ * @date 2020/4/27 16:35
+ * @description
  */
 @Data
 @Table(name = "file")

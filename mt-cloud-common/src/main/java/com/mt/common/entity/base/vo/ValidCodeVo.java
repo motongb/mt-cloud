@@ -3,9 +3,9 @@ package com.mt.common.entity.base.vo;
 import lombok.Data;
 
 /**
- * @auther: motb
- * @date: 2020/4/27 09:18
- * @description: 缓存验证码
+ * @author motb
+ * @date 2020/4/27 09:18
+ * @description 缓存验证码
  */
 @Data
 public class ValidCodeVo {

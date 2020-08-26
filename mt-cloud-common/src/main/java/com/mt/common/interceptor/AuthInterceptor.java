@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author motb
  * @date 2020/3/25 22:44
- * @description: 鉴权拦截器
+ * @description 鉴权拦截器
  */
 @Slf4j
 public class AuthInterceptor implements HandlerInterceptor {

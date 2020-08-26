@@ -6,11 +6,11 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 /**
- * @Auther: motb
- * @Date: 2020/4/9 15:32
- * @Description:
+ * @author motb
+ * @date 2020/4/9 15:32
+ * @description
  */
-public interface BaseService<T extends BaseEntity> {
+public interface BaseService<T, M> {
     /**
      * 新增
      *
@@ -35,6 +35,13 @@ public interface BaseService<T extends BaseEntity> {
     void batchDelete(List<Long> ids);
 
     /**
+     * 条件删除
+     *
+     * @param t
+     */
+    int delete(T t);
+
+    /**
      * 参数查询
      *
      * @param example
@@ -43,12 +50,26 @@ public interface BaseService<T extends BaseEntity> {
     List<T> listByExample(Example example);
 
     /**
-     * 分页查询
+     * 分页查询,需要实现mapper.xml方法
      *
      * @param pageNum
      * @param pageSize
-     * @param example
+     * @param t
      * @return
      */
-    PageResult<T> listByPage(Integer pageNum, Integer pageSize, Object example);
+    PageResult<T> listByPage(Integer pageNum, Integer pageSize, T t);
+
+    /**
+     * 查询所有
+     *
+     * @return
+     */
+    List<T> selectAll();
+
+    /**
+     * 获取mapper
+     *
+     * @return
+     */
+    M getBaseMapper();
 }

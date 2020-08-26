@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * @author motb
  * @date 2020/3/25 21:16
- * @description:
+ * @description
  */
 public abstract class JsonUtils {
 

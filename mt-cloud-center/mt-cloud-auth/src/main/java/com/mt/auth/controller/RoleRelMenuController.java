@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @auther: motb
- * @date: 2020/4/14 16:43
- * @description:
+ * @author motb
+ * @date 2020/4/14 16:43
+ * @description
  */
 @Api(tags = "系统-角色菜单")
 @RestController
@@ -33,7 +33,7 @@ public class RoleRelMenuController {
     public HttpResult save(@PathVariable Long roleId, @RequestBody List<Long> menuIds) {
         RoleRelMenuEntity relMenuEntity = new RoleRelMenuEntity();
         relMenuEntity.setRoleId(roleId);
-        roleRelMenuService.getBaseMapper().delete(relMenuEntity);
+        roleRelMenuService.delete(relMenuEntity);
         if (!CollectionUtils.isEmpty(menuIds)) {
             List<RoleRelMenuEntity> relMenuEntityList = menuIds.stream().map(menuId -> {
                 RoleRelMenuEntity item = new RoleRelMenuEntity();
@@ -41,7 +41,7 @@ public class RoleRelMenuController {
                 item.setMenuId(menuId);
                 return item;
             }).collect(Collectors.toList());
-            roleRelMenuService.saveList(relMenuEntityList);
+            roleRelMenuService.getBaseMapper().insertList(relMenuEntityList);
         }
         return HttpResult.success();
     }

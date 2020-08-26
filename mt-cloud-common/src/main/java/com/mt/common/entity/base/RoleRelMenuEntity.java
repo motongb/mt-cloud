@@ -10,9 +10,9 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
- * @auther: motb
- * @date: 2020/4/14 16:10
- * @description:
+ * @author motb
+ * @date 2020/4/14 16:10
+ * @description
  */
 @Data
 @Table(name = "sys_role_menu")

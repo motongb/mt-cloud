@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 /**
  * @author motb
  * @date 2020/7/22 15:34
- * @description:
+ * @description
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

@@ -1,16 +1,13 @@
 package com.mt.auth.service;
 
 import com.mt.auth.dao.SysConfigMapper;
-import com.mt.common.core.base.BaseServiceImpl;
+import com.mt.common.core.base.BaseService;
 import com.mt.common.entity.base.SysConfigEntity;
-import org.springframework.stereotype.Service;
 
 /**
- * @auther: motb
- * @date: 2020/5/14 14:53
- * @description:
- */
-@Service
-public class SysConfigService extends BaseServiceImpl<SysConfigEntity, SysConfigMapper> {
-
+ * @author motb
+ * @date 2020/8/26 10:49
+ * @description //TODO SysConfigService
+ **/
+public interface SysConfigService extends BaseService<SysConfigEntity, SysConfigMapper> {
 }

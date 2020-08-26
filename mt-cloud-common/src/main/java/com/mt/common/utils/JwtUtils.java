@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * @author motb
  * @date 2020/3/25 20:41
- * @description: Jwt 工具类
+ * @description Jwt 工具类
  */
 public abstract class JwtUtils {
 

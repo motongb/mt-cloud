@@ -3,9 +3,6 @@ package com.mt.common.core.base;
 import com.github.pagehelper.PageHelper;
 import com.mt.common.core.PageResult;
 import com.mt.common.core.SysBaseMapper;
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
@@ -13,21 +10,15 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 /**
- * @Auther: motb
- * @Date: 2020/4/9 15:37
- * @Description:
+ * @author motb
+ * @date 2020/4/9 15:37
+ * @description
  */
-@Slf4j
-@Getter
 @Transactional(rollbackFor = Exception.class)
-public abstract class BaseServiceImpl<T extends BaseEntity, M extends SysBaseMapper<T>> implements BaseService<T> {
+public abstract class BaseServiceImpl<T extends BaseEntity, M extends SysBaseMapper<T>> implements BaseService<T, M> {
 
     @Autowired
     private M baseMapper;
-
-    public static Logger getLog() {
-        return log;
-    }
 
     @Override
     public T save(T t) {
@@ -47,14 +38,29 @@ public abstract class BaseServiceImpl<T extends BaseEntity, M extends SysBaseMap
     }
 
     @Override
+    public int delete(T t) {
+        return baseMapper.delete(t);
+    }
+
+    @Override
     public List<T> listByExample(Example example) {
         return baseMapper.selectByExample(example);
     }
 
     @Override
-    public PageResult<T> listByPage(Integer pageNum, Integer pageSize, Object example) {
+    public PageResult<T> listByPage(Integer pageNum, Integer pageSize, T t) {
         PageHelper.startPage(pageNum, pageSize);
-        List<T> result = baseMapper.selectByExample(example);
+        List<T> result = baseMapper.selectByList(t);
         return PageResult.paresPage(result);
+    }
+
+    @Override
+    public List<T> selectAll() {
+        return baseMapper.selectAll();
+    }
+
+    @Override
+    public M getBaseMapper() {
+        return baseMapper;
     }
 }

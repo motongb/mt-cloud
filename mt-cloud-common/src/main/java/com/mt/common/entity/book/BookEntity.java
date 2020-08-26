@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/4/27 16:28
- * @description:
+ * @author motb
+ * @date 2020/4/27 16:28
+ * @description
  */
 @Data
 @Table(name = "book")

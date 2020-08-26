@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @author motb
  * @date 2020/3/25 20:42
- * @description:
+ * @description
  */
 @Data
 @Table(name = "sys_user")

@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/4/13 16:23
- * @description:
+ * @author motb
+ * @date 2020/4/13 16:23
+ * @description
  */
 @Data
 @ApiModel("树表")

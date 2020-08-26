@@ -10,9 +10,9 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.util.concurrent.Executor;
 
 /**
- * @auther: motb
- * @date: 2020/4/26 09:07
- * @description: 线程池
+ * @author motb
+ * @date 2020/4/26 09:07
+ * @description 线程池
  */
 @EnableAsync
 @Configuration

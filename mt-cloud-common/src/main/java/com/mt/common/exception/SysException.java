@@ -6,7 +6,7 @@ import lombok.Getter;
 /**
  * @author motb
  * @date 2019/7/20 18:18
- * @description:
+ * @description
  */
 @Getter
 public class SysException extends RuntimeException {

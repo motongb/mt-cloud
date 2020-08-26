@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/4/17 09:23
- * @description:
+ * @author motb
+ * @date 2020/4/17 09:23
+ * @description
  */
 @Api(tags = "系统-角色用户")
 @RestController

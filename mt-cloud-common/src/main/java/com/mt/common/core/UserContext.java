@@ -6,7 +6,7 @@ import com.mt.common.exception.SysException;
 /**
  * @author motb
  * @date 2020/3/25 22:51
- * @description: 当前用户信息
+ * @description 当前用户信息
  */
 public abstract class UserContext {
 

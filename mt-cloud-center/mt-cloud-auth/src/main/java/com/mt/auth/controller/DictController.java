@@ -13,9 +13,9 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/5/12 16:40
- * @description:
+ * @author motb
+ * @date 2020/5/12 16:40
+ * @description
  */
 @Api(tags = "系统-字典管理")
 @RestController

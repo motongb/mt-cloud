@@ -2,16 +2,15 @@ package com.mt.auth.dao;
 
 import com.mt.common.core.SysBaseMapper;
 import com.mt.common.entity.base.RoleRelMenuEntity;
-import tk.mybatis.mapper.additional.insert.InsertListMapper;
 
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/4/14 16:40
- * @description:
+ * @author motb
+ * @date 2020/4/14 16:40
+ * @description
  */
-public interface RoleRelMenuMapper extends SysBaseMapper<RoleRelMenuEntity>, InsertListMapper<RoleRelMenuEntity> {
+public interface RoleRelMenuMapper extends SysBaseMapper<RoleRelMenuEntity> {
 
     List<RoleRelMenuEntity> selectByRoleId(Long roleId);
 }

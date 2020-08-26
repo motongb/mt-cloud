@@ -7,9 +7,9 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/4/17 11:27
- * @description: 分页类
+ * @author motb
+ * @date 2020/4/17 11:27
+ * @description 分页类
  */
 @Data
 @AllArgsConstructor
@@ -26,7 +26,7 @@ public class PageResult<T> {
     private PageResult() {
     }
 
-    public static <T> PageResult paresPage(List<T> list) {
+    public static <T> PageResult<T> paresPage(List<T> list) {
         if (list instanceof Page) {
             Page<T> page = (Page<T>) list;
             return new PageResult<>(page.getPageNum(), page.getPageSize(), page.getTotal(), page.getResult());

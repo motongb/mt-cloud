@@ -4,18 +4,20 @@ import com.mt.common.core.SysBaseMapper;
 import com.mt.common.core.TreeBuilder;
 import com.mt.common.utils.UUIDUtils;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
 
 /**
- * @auther: motb
- * @date: 2020/4/13 16:59
- * @description:
+ * @author motb
+ * @date 2020/4/13 16:59
+ * @description
  */
+@Slf4j
 @Getter
-public abstract class BaseTreeServiceImpl<T extends BaseTreeEntity, M extends SysBaseMapper<T>> extends BaseServiceImpl<T, M> {
+public abstract class BaseTreeServiceImpl<T extends BaseTreeEntity, M extends SysBaseMapper<T>> extends BaseServiceImpl<T, M> implements BaseTreeService<T, M> {
 
     @Override
     public T save(T t) {
@@ -27,14 +29,15 @@ public abstract class BaseTreeServiceImpl<T extends BaseTreeEntity, M extends Sy
                 Assert.notNull(parent, "parentTreeId is invalid");
                 handleParentProperties(parent, t);
             } catch (InstantiationException | IllegalAccessException e) {
-                getLog().error(e.getMessage());
+                log.error(e.getMessage());
             }
         }
         t.setTreeId(UUIDUtils.UUID());
         return super.save(t);
     }
 
-    public List<BaseTreeEntity> tree() {
+    @Override
+    public List<T> tree() {
         return TreeBuilder.build(getBaseMapper().selectAll());
     }
 
