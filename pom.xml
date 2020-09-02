@@ -16,6 +16,7 @@
         <module>mt-cloud-common</module>
         <module>mt-cloud-center</module>
         <module>mt-cloud-dependency</module>
+        <module>mt-cloud-mybatis-generator</module>
     </modules>
 
     <properties>
