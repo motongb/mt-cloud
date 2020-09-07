@@ -1,8 +1,8 @@
 package com.mt.auth.dao;
 
 import com.mt.common.core.SysBaseMapper;
-import com.mt.common.entity.base.MenuEntity;
-import com.mt.common.entity.base.UserRelRoleEntity;
+import com.mt.common.entity.auth.MenuEntity;
+import com.mt.common.entity.auth.UserRelRoleEntity;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

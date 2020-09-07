@@ -3,7 +3,7 @@ package com.mt.auth.service.impl;
 import com.mt.auth.dao.RoleMapper;
 import com.mt.auth.service.RoleService;
 import com.mt.common.core.base.BaseServiceImpl;
-import com.mt.common.entity.base.RoleEntity;
+import com.mt.common.entity.auth.RoleEntity;
 import org.springframework.stereotype.Service;
 
 /**

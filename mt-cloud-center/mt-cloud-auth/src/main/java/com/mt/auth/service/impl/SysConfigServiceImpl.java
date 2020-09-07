@@ -3,7 +3,7 @@ package com.mt.auth.service.impl;
 import com.mt.auth.dao.SysConfigMapper;
 import com.mt.auth.service.SysConfigService;
 import com.mt.common.core.base.BaseServiceImpl;
-import com.mt.common.entity.base.SysConfigEntity;
+import com.mt.common.entity.auth.SysConfigEntity;
 import org.springframework.stereotype.Service;
 
 /**

@@ -1,6 +1,6 @@
 package com.mt.middle.service;
 
-import com.mt.common.entity.base.vo.ValidCodeVo;
+import com.mt.common.entity.auth.vo.ValidCodeVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,7 +1,7 @@
 package com.mt.auth.controller;
 
 import com.mt.auth.service.impl.MenuServiceImpl;
-import com.mt.common.entity.base.MenuEntity;
+import com.mt.common.entity.auth.MenuEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;

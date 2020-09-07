@@ -1,7 +1,7 @@
 package com.mt.middle.dao;
 
 import com.mt.common.core.SysBaseMapper;
-import com.mt.common.entity.book.BookEntity;
+import com.mt.common.entity.middle.BookEntity;
 
 import java.util.List;
 

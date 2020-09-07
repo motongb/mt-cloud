@@ -1,7 +1,7 @@
 package com.mt.auth.dao;
 
 import com.mt.common.core.SysBaseMapper;
-import com.mt.common.entity.base.DictEntity;
+import com.mt.common.entity.auth.DictEntity;
 
 /**
  * @author motb

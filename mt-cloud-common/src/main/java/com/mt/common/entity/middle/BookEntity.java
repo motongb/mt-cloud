@@ -1,7 +1,6 @@
-package com.mt.common.entity.book;
+package com.mt.common.entity.middle;
 
 import com.mt.common.core.base.BaseEntity;
-import com.mt.common.entity.base.FileEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

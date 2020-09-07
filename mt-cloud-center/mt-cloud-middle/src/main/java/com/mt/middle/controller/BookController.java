@@ -1,6 +1,6 @@
 package com.mt.middle.controller;
 
-import com.mt.common.entity.book.BookEntity;
+import com.mt.common.entity.middle.BookEntity;
 import com.mt.common.http.HttpResult;
 import com.mt.middle.service.BookService;
 import io.swagger.annotations.Api;

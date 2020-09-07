@@ -3,7 +3,7 @@ package com.mt.auth.service.impl;
 import com.mt.auth.dao.DictMapper;
 import com.mt.auth.service.DictService;
 import com.mt.common.core.base.BaseTreeServiceImpl;
-import com.mt.common.entity.base.DictEntity;
+import com.mt.common.entity.auth.DictEntity;
 import org.springframework.stereotype.Service;
 
 /**

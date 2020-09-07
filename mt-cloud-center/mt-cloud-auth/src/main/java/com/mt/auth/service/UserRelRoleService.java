@@ -2,9 +2,9 @@ package com.mt.auth.service;
 
 import com.mt.auth.dao.UserRelRoleMapper;
 import com.mt.common.core.base.BaseService;
-import com.mt.common.entity.base.MenuEntity;
-import com.mt.common.entity.base.UserEntity;
-import com.mt.common.entity.base.UserRelRoleEntity;
+import com.mt.common.entity.auth.MenuEntity;
+import com.mt.common.entity.auth.UserEntity;
+import com.mt.common.entity.auth.UserRelRoleEntity;
 
 import java.util.List;
 

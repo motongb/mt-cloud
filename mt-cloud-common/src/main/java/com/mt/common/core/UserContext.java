@@ -1,6 +1,6 @@
 package com.mt.common.core;
 
-import com.mt.common.entity.base.UserEntity;
+import com.mt.common.entity.auth.UserEntity;
 import com.mt.common.exception.SysException;
 
 /**

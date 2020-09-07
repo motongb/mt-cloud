@@ -3,7 +3,7 @@ package com.mt.auth.service.impl;
 import com.mt.auth.dao.RoleRelMenuMapper;
 import com.mt.auth.service.RoleRelMenuService;
 import com.mt.common.core.base.BaseServiceImpl;
-import com.mt.common.entity.base.RoleRelMenuEntity;
+import com.mt.common.entity.auth.RoleRelMenuEntity;
 import org.springframework.stereotype.Service;
 
 /**

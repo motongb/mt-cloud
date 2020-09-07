@@ -2,7 +2,7 @@ package com.mt.auth.service;
 
 import com.mt.auth.dao.MenuMapper;
 import com.mt.common.core.base.BaseTreeService;
-import com.mt.common.entity.base.MenuEntity;
+import com.mt.common.entity.auth.MenuEntity;
 
 /**
  * @author motb

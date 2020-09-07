@@ -1,6 +1,6 @@
 package com.mt.auth.service;
 
-import com.mt.common.entity.base.vo.LoginInfo;
+import com.mt.common.entity.auth.vo.LoginInfo;
 
 import java.util.Map;
 

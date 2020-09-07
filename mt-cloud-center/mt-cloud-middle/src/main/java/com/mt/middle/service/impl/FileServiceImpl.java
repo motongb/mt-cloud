@@ -1,7 +1,7 @@
 package com.mt.middle.service.impl;
 
 import com.mt.common.core.base.BaseServiceImpl;
-import com.mt.common.entity.base.FileEntity;
+import com.mt.common.entity.middle.FileEntity;
 import com.mt.middle.dao.FileMapper;
 import com.mt.middle.service.FileService;
 import org.springframework.stereotype.Service;

@@ -2,7 +2,7 @@ package com.mt.auth.service;
 
 import com.mt.auth.dao.DictMapper;
 import com.mt.common.core.base.BaseTreeService;
-import com.mt.common.entity.base.DictEntity;
+import com.mt.common.entity.auth.DictEntity;
 
 /**
  * @author motb

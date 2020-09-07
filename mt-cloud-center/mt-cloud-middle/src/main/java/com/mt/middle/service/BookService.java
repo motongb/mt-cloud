@@ -1,7 +1,7 @@
 package com.mt.middle.service;
 
 import com.mt.common.core.base.BaseService;
-import com.mt.common.entity.book.BookEntity;
+import com.mt.common.entity.middle.BookEntity;
 import com.mt.middle.dao.BookMapper;
 
 /**

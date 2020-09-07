@@ -1,7 +1,7 @@
 package com.mt.auth.controller;
 
 import com.mt.auth.service.DictService;
-import com.mt.common.entity.base.DictEntity;
+import com.mt.common.entity.auth.DictEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

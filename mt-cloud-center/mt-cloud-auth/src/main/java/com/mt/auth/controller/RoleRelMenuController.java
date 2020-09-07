@@ -1,7 +1,7 @@
 package com.mt.auth.controller;
 
 import com.mt.auth.service.RoleRelMenuService;
-import com.mt.common.entity.base.RoleRelMenuEntity;
+import com.mt.common.entity.auth.RoleRelMenuEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;

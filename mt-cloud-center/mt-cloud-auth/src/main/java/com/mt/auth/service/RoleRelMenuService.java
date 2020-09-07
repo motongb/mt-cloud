@@ -2,7 +2,7 @@ package com.mt.auth.service;
 
 import com.mt.auth.dao.RoleRelMenuMapper;
 import com.mt.common.core.base.BaseService;
-import com.mt.common.entity.base.RoleRelMenuEntity;
+import com.mt.common.entity.auth.RoleRelMenuEntity;
 
 /**
  * @author motb

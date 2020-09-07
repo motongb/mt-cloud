@@ -1,4 +1,4 @@
-package com.mt.common.entity.base.vo;
+package com.mt.common.entity.auth.vo;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;

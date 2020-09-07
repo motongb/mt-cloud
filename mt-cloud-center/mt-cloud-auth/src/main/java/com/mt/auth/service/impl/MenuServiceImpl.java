@@ -3,7 +3,7 @@ package com.mt.auth.service.impl;
 import com.mt.auth.dao.MenuMapper;
 import com.mt.auth.service.MenuService;
 import com.mt.common.core.base.BaseTreeServiceImpl;
-import com.mt.common.entity.base.MenuEntity;
+import com.mt.common.entity.auth.MenuEntity;
 import org.springframework.stereotype.Service;
 
 /**

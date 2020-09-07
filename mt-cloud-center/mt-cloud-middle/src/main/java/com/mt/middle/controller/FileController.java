@@ -2,7 +2,7 @@ package com.mt.middle.controller;
 
 import com.mt.api.middle.feign.FileApi;
 import com.mt.common.core.SystemConst;
-import com.mt.common.entity.base.FileEntity;
+import com.mt.common.entity.middle.FileEntity;
 import com.mt.common.http.HttpResult;
 import com.mt.middle.service.MinioOssService;
 import com.mt.middle.service.impl.FileServiceImpl;

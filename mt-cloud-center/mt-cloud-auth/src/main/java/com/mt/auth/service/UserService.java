@@ -2,7 +2,7 @@ package com.mt.auth.service;
 
 import com.mt.auth.dao.UserMapper;
 import com.mt.common.core.base.BaseService;
-import com.mt.common.entity.base.UserEntity;
+import com.mt.common.entity.auth.UserEntity;
 
 /**
  * @author motb

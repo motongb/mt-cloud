@@ -1,7 +1,7 @@
 package com.mt.middle.dao;
 
 import com.mt.common.core.SysBaseMapper;
-import com.mt.common.entity.base.FileEntity;
+import com.mt.common.entity.middle.FileEntity;
 import tk.mybatis.mapper.additional.insert.InsertListMapper;
 
 /**

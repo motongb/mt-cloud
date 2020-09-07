@@ -1,4 +1,4 @@
-package com.mt.common.entity.base;
+package com.mt.common.entity.middle;
 
 import com.mt.common.core.base.BaseEntity;
 import io.swagger.annotations.ApiModel;

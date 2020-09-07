@@ -1,7 +1,7 @@
 package com.mt.auth.controller;
 
 import com.mt.auth.service.SysConfigService;
-import com.mt.common.entity.base.SysConfigEntity;
+import com.mt.common.entity.auth.SysConfigEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;

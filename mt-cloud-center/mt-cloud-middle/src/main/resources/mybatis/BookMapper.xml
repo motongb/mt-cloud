@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mt.middle.dao.BookMapper">
 
-    <resultMap id="resultMap" type="com.mt.common.entity.book.BookEntity">
+    <resultMap id="resultMap" type="com.mt.common.entity.middle.BookEntity">
         <id property="id" column="id"/>
-        <collection property="files" ofType="com.mt.common.entity.base.FileEntity" column="id"
+        <collection property="files" ofType="com.mt.common.entity.middle.FileEntity" column="id"
                     javaType="java.util.ArrayList" select="getFiles"/>
     </resultMap>
 
@@ -12,7 +12,7 @@
         id,name,publish_time,author,remark,type,tags,url
     </sql>
 
-    <select id="selectByList" resultMap="resultMap" parameterType="com.mt.common.entity.book.BookEntity">
+    <select id="selectByList" resultMap="resultMap" parameterType="com.mt.common.entity.middle.BookEntity">
         select
         <include refid="column"/>
         from book
@@ -24,7 +24,7 @@
         order by update_time desc
     </select>
 
-    <select id="getFiles" parameterType="long" resultType="com.mt.common.entity.base.FileEntity">
+    <select id="getFiles" parameterType="long" resultType="com.mt.common.entity.middle.FileEntity">
         select id,file_name,file_path,relate_id
         from iot_server.sys_file
         where relate_id = #{id}

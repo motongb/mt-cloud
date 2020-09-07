@@ -1,7 +1,7 @@
 package com.mt.api.middle.feign;
 
 import com.mt.common.core.SystemConst;
-import com.mt.common.entity.base.FileEntity;
+import com.mt.common.entity.middle.FileEntity;
 import com.mt.common.http.HttpResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
